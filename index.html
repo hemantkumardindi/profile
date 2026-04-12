@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemant Kumar Dindi — Engineering Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #38bdf8;
+            --accent2: #818cf8;
+            --gradient: linear-gradient(135deg, #38bdf8, #818cf8);
+        }
+        body { font-family: 'Roboto', system-ui, -apple-system, sans-serif; scroll-behavior: smooth; font-size: 1.05rem; }
+
+        /* NAVBAR */
+        .navbar { backdrop-filter: blur(16px); background: rgba(15, 23, 42, 0.85) !important; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .navbar-brand { font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.4rem; }
+        .nav-link { font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; color: #FAFAFA !important; }
+        .nav-link:hover, .nav-link.active { color: var(--accent) !important; }
+
+        /* HERO */
+        .hero-section {
+            min-height: 100vh; display: flex; align-items: center;
+            background: linear-gradient(160deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            position: relative; overflow: hidden;
+        }
+        .hero-section::before {
+            content: ''; position: absolute; top: -50%; right: -30%; width: 80%; height: 200%;
+            background: radial-gradient(circle, rgba(56,189,248,0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .profile-pic { width: 300px; height: 300px; }
+        .hero-badge { display: inline-block; padding: 6px 18px; border-radius: 50px; font-size: 0.82rem; font-weight: 600; background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.25); color: var(--accent); margin-bottom: 16px; }
+        .hero-title { font-size: 3.2rem; font-weight: 800; line-height: 1.1; }
+        .hero-title span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-subtitle { color: var(--accent); font-weight: 600; font-size: 1.15rem; }
+        .hero-summary { color: #FAFAFA; font-size: 1.1rem; line-height: 1.75; max-width: 680px; text-align: justify; }
+
+        /* SECTION HEADERS */
+        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+        .section-title span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .section-line { width: 60px; height: 3px; background: var(--gradient); border-radius: 3px; margin-bottom: 40px; }
+
+        /* COMPETENCY CAROUSEL */
+        .competency-slide {
+            background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px; padding: 40px; min-height: 300px;
+            transition: all 0.3s; color: #FAFAFA;
+        }
+        #competencyCarousel .carousel-inner { min-height: 320px; }
+        #competencyCarousel .carousel-item { min-height: 320px; }
+        .competency-slide:hover { border-color: rgba(56,189,248,0.3); }
+        .competency-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .competency-icon { font-size: 2rem; }
+        .competency-slide h4 { font-weight: 700; font-size: 1.2rem; margin: 0; color: #38bdf8; }
+        .tag { display: inline-block; padding: 6px 16px; margin: 4px; border-radius: 8px; font-size: 0.88rem; font-weight: 500; background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.15); color: #FAFAFA; transition: all 0.2s; }
+        .tag:hover { background: rgba(56,189,248,0.15); color: #fff; }
+
+        /* EXPERIENCE CAROUSEL */
+        #experienceCarousel .carousel-inner { min-height: 520px; }
+        #experienceCarousel .carousel-item { min-height: 520px; }
+        .exp-card {
+            background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px; padding: 36px;
+            min-height: 500px; display: flex; flex-direction: column;
+        }
+        .exp-card .company { font-size: 0.85rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .exp-card .role { font-size: 1.4rem; font-weight: 700; margin: 6px 0; color: #FAFAFA; }
+        .exp-card .period { font-size: 0.85rem; color: #FAFAFA; opacity: 0.7; margin-bottom: 20px; }
+        .exp-card ul { flex: 1; overflow-y: auto; max-height: 380px; padding-left: 0; list-style: none; }
+        .exp-card ul li { position: relative; padding-left: 20px; margin-bottom: 14px; color: #FAFAFA; font-size: 1.1rem; line-height: 1.75; text-align: justify; }
+        .exp-card ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+        /* CAROUSEL CONTROLS */
+        .carousel-control-prev, .carousel-control-next { width: 48px; height: 48px; top: 50%; transform: translateY(-50%); background: rgba(56,189,248,0.15); border: 1px solid rgba(56,189,248,0.3); border-radius: 50%; opacity: 1; }
+        .carousel-control-prev { left: -60px; }
+        .carousel-control-next { right: -60px; }
+        .carousel-control-prev:hover, .carousel-control-next:hover { background: rgba(56,189,248,0.3); }
+        .carousel-indicators [data-bs-target] { width: 10px; height: 10px; border-radius: 50%; background-color: #EDE6E4 !important; opacity: 0.4 !important; border: none; margin: 0 5px; }
+        .carousel-indicators .active { background-color: var(--accent) !important; opacity: 1 !important; }
+
+        /* CERTIFICATIONS */
+        .cert-card {
+            background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px; padding: 20px; text-align: center;
+            transition: all 0.3s; height: 100%;
+        }
+        .cert-card:hover { border-color: rgba(129,140,248,0.4); transform: translateY(-4px); }
+        .cert-icon { font-size: 2rem; margin-bottom: 10px; color: var(--accent2); }
+        .cert-card h6 { font-size: 0.9rem; font-weight: 600; margin: 0; }
+
+        /* AWARDS */
+        .award-item {
+            display: flex; align-items: flex-start; gap: 14px;
+            background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px; padding: 18px 22px; transition: all 0.2s; height: 100%;
+        }
+        .award-item:hover { border-color: rgba(129,140,248,0.3); }
+        .award-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+        .award-title { font-size: 0.92rem; font-weight: 600; }
+        .award-org { font-size: 0.78rem; color: #FAFAFA; opacity: 0.7; margin-top: 2px; }
+
+        /* EDUCATION */
+        .edu-card {
+            background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px; padding: 32px; display: flex; align-items: center; gap: 24px;
+        }
+        .edu-icon-wrap { width: 64px; height: 64px; border-radius: 16px; background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
+
+        /* FOOTER */
+        .footer { background: #0f172a; border-top: 1px solid rgba(255,255,255,0.06); }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { color: var(--accent2); }
+
+        /* ANIMATIONS */
+        .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* RESPONSIVE — TABLET */
+        @media (max-width: 991px) {
+            .hero-title { font-size: 2.6rem; }
+            .carousel-control-prev { left: -10px; }
+            .carousel-control-next { right: -10px; }
+        }
+
+        /* RESPONSIVE — MOBILE */
+        @media (max-width: 768px) {
+            body { font-size: 1rem; }
+            .profile-pic { width: 180px; height: 180px; }
+            .hero-section { min-height: auto; padding: 100px 0 60px; }
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .hero-summary { font-size: 1rem; line-height: 1.65; }
+            .hero-badge { font-size: 0.75rem; }
+            .section-title { font-size: 1.6rem; }
+            .carousel-control-prev, .carousel-control-next { width: 36px; height: 36px; top: auto; bottom: -45px; transform: none; }
+            .carousel-control-prev { left: calc(50% - 50px); }
+            .carousel-control-next { right: calc(50% - 50px); }
+            .competency-slide { padding: 20px; min-height: auto; }
+            .competency-slide h4 { font-size: 1.05rem; }
+            #competencyCarousel .carousel-inner, #competencyCarousel .carousel-item { min-height: auto; }
+            #experienceCarousel .carousel-inner, #experienceCarousel .carousel-item { min-height: auto; }
+            .exp-card { min-height: auto; padding: 24px; }
+            .exp-card .role { font-size: 1.15rem; }
+            .exp-card ul { max-height: none; }
+            .exp-card ul li { font-size: 0.9rem; }
+            .tag { font-size: 0.78rem; padding: 4px 12px; }
+            .cert-card { padding: 16px; }
+            .cert-icon { font-size: 1.6rem; }
+            .cert-card h6 { font-size: 0.8rem; }
+            .award-item { padding: 14px 16px; }
+            .edu-card { flex-direction: column; text-align: center; padding: 24px; }
+        }
+
+        /* RESPONSIVE — SMALL PHONES */
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.7rem; }
+            .hero-section { padding: 80px 0 50px; }
+            .d-flex.flex-wrap.gap-3 a.btn { width: 100%; text-align: center; }
+            .section-title { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">HK</a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto gap-1">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="hero-badge">15+ Years in Data &amp; Cloud Engineering</div>
+                <h1 class="hero-title mb-3">Hemant <span>Dindi</span></h1>
+                <p class="hero-subtitle mb-3">Engineering Manager | Data &amp; Cloud Infrastructure | Platform Strategy</p>
+                <p class="hero-summary mb-4">
+                    Product-focused Engineering Leader driving the evolution of enterprise data platforms at Mercedes-Benz R&amp;D India.
+                    I lead a cross-functional organization of 25+ engineers to deliver developer-centric infrastructure leveraging
+                    Azure, Confluent Kafka, Databricks, and Open Source solutions. Proven track record in architecting self-service,
+                    governed platforms that transform raw vehicle telemetry into actionable economic utility while upholding rigorous
+                    compliance and security standards.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="mailto:hemantkumar.dindi@gmail.com" class="btn btn-primary px-4">
+                        <i class="bi bi-envelope-fill me-2"></i>Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/hemantkumardindi/" target="_blank" class="btn btn-outline-light px-4">
+                        <i class="bi bi-linkedin me-2"></i>LinkedIn
+                    </a>
+                    <a href="tel:+919538388300" class="btn btn-outline-light px-4">
+                        <i class="bi bi-telephone-fill me-2"></i>+91 9538388300
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center mb-4 mb-lg-0 order-first order-lg-last">
+                <img src="profile-pic.jpg" alt="Hemant Kumar Dindi" class="profile-pic" style="border-radius:50%; object-fit:cover; border: 3px solid rgba(56,189,248,0.4); box-shadow: 0 0 40px rgba(56,189,248,0.15);">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CORE COMPETENCIES CAROUSEL -->
+<section id="skills" class="py-5">
+    <div class="container py-4">
+        <div class="fade-up">
+            <h2 class="section-title">Core <span>Competencies</span></h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="position-relative fade-up">
+            <div id="competencyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" data-bs-wrap="true">
+                <div class="carousel-indicators mb-0" style="bottom: -40px;">
+                    <button type="button" data-bs-target="#competencyCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#competencyCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#competencyCarousel" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <!-- Slide 1: Leadership + Cloud -->
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="competency-slide h-100">
+                                    <div class="competency-header">
+                                        <div class="competency-icon">👥</div>
+                                        <h4>Leadership &amp; Delivery</h4>
+                                    </div>
+                                    <div>
+                                        <span class="tag">Team Building (25+ eng)</span>
+                                        <span class="tag">Program Management</span>
+                                        <span class="tag">SAFe Agile (RTE, SM, PO)</span>
+                                        <span class="tag">Strategic Roadmapping</span>
+                                        <span class="tag">Talent Acquisition</span>
+                                        <span class="tag">Global Distributed Teams</span>
+                                        <span class="tag">SLA &amp; On-Call Mgmt</span>
+                                        <span class="tag">Risk &amp; Incident Mgmt</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="competency-slide h-100">
+                                    <div class="competency-header">
+                                        <div class="competency-icon">☁️</div>
+                                        <h4>Cloud &amp; Data Platforms</h4>
+                                    </div>
+                                    <div>
+                                        <span class="tag">Azure (IaaS/PaaS)</span>
+                                        <span class="tag">Databricks (Unity Catalog)</span>
+                                        <span class="tag">Confluent Kafka</span>
+                                        <span class="tag">Kubernetes (AKS)</span>
+                                        <span class="tag">Hortonworks Hadoop</span>
+                                        <span class="tag">Data Mesh</span>
+                                        <span class="tag">Delta Lake</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2: Open-Source + IaC -->
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="competency-slide h-100">
+                                    <div class="competency-header">
+                                        <div class="competency-icon">🔧</div>
+                                        <h4>Open-Source &amp; Analytics</h4>
+                                    </div>
+                                    <div>
+                                        <span class="tag">Apache Kafka</span>
+                                        <span class="tag">Apache Druid</span>
+                                        <span class="tag">Apache Airflow</span>
+                                        <span class="tag">Apache Superset</span>
+                                        <span class="tag">OpenSearch</span>
+                                        <span class="tag">Harbor</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="competency-slide h-100">
+                                    <div class="competency-header">
+                                        <div class="competency-icon">⚙️</div>
+                                        <h4>Infrastructure as Code &amp; Automation</h4>
+                                    </div>
+                                    <div>
+                                        <span class="tag">Terraform</span>
+                                        <span class="tag">Pulumi</span>
+                                        <span class="tag">Terrakube</span>
+                                        <span class="tag">Python</span>
+                                        <span class="tag">FastAPI</span>
+                                        <span class="tag">Shell</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3: DevSecOps + Observability -->
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="competency-slide h-100">
+                                    <div class="competency-header">
+                                        <div class="competency-icon">🛡️</div>
+                                        <h4>DevSecOps &amp; Governance</h4>
+                                    </div>
+                                    <div>
+                                        <span class="tag">GitLab CI/CD</span>
+                                        <span class="tag">Azure DevOps</span>
+                                        <span class="tag">Wiz.io</span>
+                                        <span class="tag">SonarQube</span>
+                                        <span class="tag">Black Duck</span>
+                                        <span class="tag">Checkov</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="competency-slide h-100">
+                                    <div class="competency-header">
+                                        <div class="competency-icon">📊</div>
+                                        <h4>Observability &amp; FinOps</h4>
+                                    </div>
+                                    <div>
+                                        <span class="tag">Datadog</span>
+                                        <span class="tag">Prometheus</span>
+                                        <span class="tag">Grafana</span>
+                                        <span class="tag">Loki</span>
+                                        <span class="tag">OpenSearch</span>
+                                        <span class="tag">OpenCost</span>
+                                        <span class="tag">OpenOps</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#competencyCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#competencyCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROFESSIONAL EXPERIENCE CAROUSEL -->
+<section id="experience" class="py-5" style="background: rgba(15,23,42,0.5);">
+    <div class="container py-4">
+        <div class="fade-up">
+            <h2 class="section-title">Professional <span>Experience</span></h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="position-relative fade-up">
+            <div id="experienceCarousel" class="carousel slide" data-bs-wrap="true">
+                <div class="carousel-indicators mb-0" style="bottom: -40px;">
+                    <button type="button" data-bs-target="#experienceCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#experienceCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#experienceCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#experienceCarousel" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#experienceCarousel" data-bs-slide-to="4"></button>
+                    <button type="button" data-bs-target="#experienceCarousel" data-bs-slide-to="5"></button>
+                </div>
+                <div class="carousel-inner">
+
+                    <!-- Role 1: Principal Engineer -->
+                    <div class="carousel-item active">
+                        <div class="exp-card">
+                            <p class="company">Mercedes-Benz R&amp;D India Pvt. Ltd</p>
+                            <h3 class="role">Principal Engineer</h3>
+                            <p class="period"><i class="bi bi-calendar3 me-1"></i> April 2023 – Present</p>
+                            <ul>
+                                <li>Orchestrated the full transition of the Vehicle Data Platform and Slipstream (Confluent Cloud streaming platform) from Mercedes-Benz US to R&amp;D India, bootstrapping new engineering squads and achieving operational self-sufficiency — eliminating dependency on the US team.</li>
+                                <li>Built and scaled a 25+ member engineering organization, driving reduction in attrition through structured mentoring, career pathing, and a culture of ownership.</li>
+                                <li>Engineered and productized Azure Databricks as a governed data platform with Unity Catalog, enabling lineage tracking, fine-grained access control, and self-service analytics.</li>
+                                <li>Deployed open-source platforms (Superset, Kafka, Druid, OpenSearch, Airflow) on AKS with full observability (Datadog, Prometheus, Grafana). Drove FinOps adoption with OpenCost-based dashboards and compute right-sizing.</li>
+                                <li>Overhauled DevSecOps posture by aligning to CIS Benchmarks and Azure Defender, migrating IaC from Pulumi to Terraform.</li>
+                                <li>Enabled Data Mesh architecture by integrating data products into the DDX Marketplace, enabling federated data sharing with policy-enforced governance.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Role 2: Senior Technical Lead -->
+                    <div class="carousel-item">
+                        <div class="exp-card">
+                            <p class="company">Mercedes-Benz R&amp;D India Pvt. Ltd</p>
+                            <h3 class="role">Senior Technical Lead</h3>
+                            <p class="period"><i class="bi bi-calendar3 me-1"></i> August 2021 – April 2023</p>
+                            <ul>
+                                <li>Co-architected the NextGen Data Platform with Mercedes-Benz US, establishing a unified vehicle and enterprise data framework that consolidated disparate data sources into a single governed pipeline.</li>
+                                <li>Delivered a production-grade platform with integrated observability (logging, monitoring, alerting) and OPA-based policy enforcement, achieving compliance with internal security guardrails from day one.</li>
+                                <li>Engineered IaC using Pulumi (Python) and built FastAPI-based self-service APIs for provisioning and user onboarding. Implemented automated CI/CD pipelines with integrated security scanning, maintaining zero critical vulnerabilities.</li>
+                                <li>Hired and ramped engineers to build the India engineering capability from the ground up, achieving full delivery alignment with global R&amp;D architecture standards.</li>
+                                <li>Defined and enforced SLAs across environments (Dev, Staging, Prod), maintaining high platform availability and reducing MTTR through structured on-call rotations.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Role 3: Principal Consultant -->
+                    <div class="carousel-item">
+                        <div class="exp-card">
+                            <p class="company">Mercedes-Benz R&amp;D India Pvt. Ltd</p>
+                            <h3 class="role">Principal Consultant</h3>
+                            <p class="period"><i class="bi bi-calendar3 me-1"></i> April 2017 – July 2021</p>
+                            <ul>
+                                <li>Sustained 200+ node Hadoop clusters at high availability while executing a modernization roadmap, reducing unplanned incidents through proactive capacity planning.</li>
+                                <li>Evaluated, implemented, and productionized Apache NiFi as the enterprise data integration platform, processing data flows daily and upskilling the operations team.</li>
+                                <li>Planned and executed the full cloud migration from on-premise Hadoop to Azure HDInsight — migrating data with zero data loss, completing the transition ahead of schedule.</li>
+                                <li>Selected as the sole India R&amp;D representative to co-develop an analytics platform for a global cloud initiative.</li>
+                                <li>Architected a Kubernetes-based analytics platform using fully open-source tools (Superset, Druid), serving global users.</li>
+                                <li>Designed and delivered an enterprise container registry on open-source Harbor, deployed across 3 environments and 2 regions (APAC, EMEA).</li>
+                                <li>Bootstrapped and led a women-majority engineering team for the container registry platform, contributing to MBRDI's diversity &amp; inclusion goals.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Role 4: Senior Consultant -->
+                    <div class="carousel-item">
+                        <div class="exp-card">
+                            <p class="company">Mercedes-Benz R&amp;D India Pvt. Ltd</p>
+                            <h3 class="role">Senior Consultant</h3>
+                            <p class="period"><i class="bi bi-calendar3 me-1"></i> May 2015 – March 2017</p>
+                            <ul>
+                                <li>Owned and operated a 200+ node enterprise Hadoop cluster serving business users, maintaining uptime SLA and processing TB-scale data daily across batch and scheduled workloads.</li>
+                                <li>Led a 12+ member SRE team, instituting proactive monitoring and runbook automation that reduced mean time to detection (MTTD) and cut unplanned downtime.</li>
+                                <li>Managed end-to-end cluster lifecycle — upgrades, patching, capacity planning, user provisioning, and job scheduling — executing major upgrades with zero production impact.</li>
+                                <li>Partnered with Linux, Security, and DBA teams to enforce compliance and governance standards, achieving high audit pass rates.</li>
+                                <li>Delivered weekly capacity and performance reports to senior leadership, surfacing actionable insights that drove strategic infrastructure investments.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Role 5: Tech Mahindra -->
+                    <div class="carousel-item">
+                        <div class="exp-card">
+                            <p class="company">Tech Mahindra</p>
+                            <h3 class="role">Senior Software Engineer</h3>
+                            <p class="period"><i class="bi bi-calendar3 me-1"></i> October 2013 – May 2015 &nbsp;|&nbsp; Hyderabad &amp; Bangalore</p>
+                            <ul>
+                                <li>Joined Tech Mahindra as a Teradata Developer; during the project discovery phase with BU Heads and CoE Leaders, identified and secured an opportunity to join the newly established Big Data Center of Excellence (CoE) — pivoting career trajectory toward distributed data platforms.</li>
+                                <li>Served as the primary Point of Contact with the local infrastructure team to provision and configure the required hardware and network for Hadoop cluster environments, enabling the CoE to rapidly stand up evaluation and PoC infrastructure.</li>
+                                <li>Evaluated Hortonworks, Cloudera, MapR, open-source Hadoop, IBM BigInsights, and HP IDOL — delivering a comprehensive comparative analysis covering performance, scalability, licensing, and ecosystem maturity that informed enterprise-wide distribution selection.</li>
+                                <li>Delivered Proofs of Concept (PoCs) for global customers across business analytics, log processing, and predictive use cases, directly contributing to new client wins.</li>
+                                <li>Maintained thorough documentation for every PoC, presenting the strengths, limitations, and challenges to CoE leadership — enabling data-driven technology decisions and knowledge reuse across engagements.</li>
+                                <li>Trained engineers on Hadoop ecosystem components and cluster operations, accelerating CoE capability maturity and enabling self-service big data adoption.</li>
+                                <li>After one year in the CoE, secured an opportunity to support a major German automobile manufacturer on their journey to adopt Hortonworks-based Hadoop platforms — relocated to Bangalore to drive hands-on delivery and platform enablement for the client.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Role 6: iGate -->
+                    <div class="carousel-item">
+                        <div class="exp-card">
+                            <p class="company">iGate (now Capgemini)</p>
+                            <h3 class="role">Senior Software Engineer</h3>
+                            <p class="period"><i class="bi bi-calendar3 me-1"></i> May 2010 – September 2013 &nbsp;|&nbsp; Hyderabad</p>
+                            <ul>
+                                <li>Joined as a Software Engineer — Mainframes and was assigned to the RBC (Royal Bank of Canada) engagement, delivering JCL, COBOL, and DB2 development for the bank's core batch and transaction processing systems.</li>
+                                <li>Hand-picked as the only developer from the Hyderabad ODC to travel to Bangalore for Knowledge Transfer sessions, facilitating a seamless project handover from the Bangalore ODC to Hyderabad with zero delivery disruption.</li>
+                                <li>Performed a comprehensive reverse analysis of the entire end-to-end application landscape, earning formal appreciation from the client and project leadership for uncovering undocumented dependencies and data flows.</li>
+                                <li>Contributed to JCL, DB2 and COBOL development across multiple release cycles, participating in requirement gathering, coding, and unit testing to ensure on-time, defect-free deliveries.</li>
+                                <li>Upskilled into SAS and Teradata, independently supporting Teradata-based data requirements and expanding the team's delivery capability beyond mainframe workloads.</li>
+                                <li>Supported production Go-Live activities including job scheduling validation, smoke testing, and post-deployment monitoring — contributing to successful, zero-incident releases.</li>
+                                <li>Proactively explored emerging technologies such as Hadoop and Big Data ecosystems beyond the mainframe stack, building foundational knowledge to stay future-ready and positioning for the industry's shift toward distributed data platforms.</li>
+                                <li>Promoted to Senior Software Engineer in recognition of technical depth, cross-skill versatility, and consistent delivery excellence.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#experienceCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#experienceCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="py-5">
+    <div class="container py-4">
+        <div class="fade-up">
+            <h2 class="section-title"><span>Certifications</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="row g-3 fade-up">
+            <div class="col-6 col-md-3">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="bi bi-train-front"></i></div>
+                    <h6>Certified SAFe® 6 Release Train Engineer</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="bi bi-building-gear"></i></div>
+                    <h6>Certified SAFe® 6 Architect</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="bi bi-kanban"></i></div>
+                    <h6>Certified SAFe® 5 Scrum Master</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="bi bi-clipboard-check"></i></div>
+                    <h6>Certified Scrum Product Owner® (CSPO®)</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                    <h6>Certified Kubernetes Administrator (CKA)</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="bi bi-code-slash"></i></div>
+                    <h6>Certified Kubernetes Application Developer (CKAD)</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="bi bi-hdd-stack"></i></div>
+                    <h6>Hortonworks Data Platform Administrator</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="bi bi-ubuntu"></i></div>
+                    <h6>Red Hat Certified System Administrator — OpenStack</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards" class="py-5" style="background: rgba(15,23,42,0.5);">
+    <div class="container py-4">
+        <div class="fade-up">
+            <h2 class="section-title">Awards &amp; <span>Recognitions</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="row g-3 fade-up">
+            <div class="col-md-6 col-lg-4">
+                <div class="award-item">
+                    <div class="award-icon">🏆</div>
+                    <div>
+                        <div class="award-title">Best Team Award</div>
+                        <div class="award-org">Mercedes-Benz R&amp;D India</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="award-item">
+                    <div class="award-icon">⭐</div>
+                    <div>
+                        <div class="award-title">Long Service Award</div>
+                        <div class="award-org">Mercedes-Benz R&amp;D India</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="award-item">
+                    <div class="award-icon">🎖️</div>
+                    <div>
+                        <div class="award-title">ABCD — Above and Beyond the Call of Duty</div>
+                        <div class="award-org">Mercedes-Benz R&amp;D India</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="award-item">
+                    <div class="award-icon">💡</div>
+                    <div>
+                        <div class="award-title">Kaizen Star Award</div>
+                        <div class="award-org">Mercedes-Benz R&amp;D India</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="award-item">
+                    <div class="award-icon">🎖️</div>
+                    <div>
+                        <div class="award-title">ABCD — Above and Beyond the Call of Duty</div>
+                        <div class="award-org">Mercedes-Benz R&amp;D India</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="award-item">
+                    <div class="award-icon">👏</div>
+                    <div>
+                        <div class="award-title">Pat on the Back Award</div>
+                        <div class="award-org">Tech Mahindra</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="award-item">
+                    <div class="award-icon">📜</div>
+                    <div>
+                        <div class="award-title">Certificate of Excellence</div>
+                        <div class="award-org">iGate Global Solutions (Now Capgemini)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="py-5">
+    <div class="container py-4">
+        <div class="fade-up">
+            <h2 class="section-title"><span>Education</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="fade-up">
+            <div class="edu-card">
+                <div class="edu-icon-wrap">🎓</div>
+                <div>
+                    <h5 class="mb-1" style="font-weight:700;">B.Tech — Information Technology</h5>
+                    <p class="mb-0" style="color:#94a3b8;">Biju Patnaik University of Technology, Rourkela, India</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                <span style="color:#64748b; font-size:0.85rem;">© 2025 Hemant Kumar Dindi. All rights reserved.</span>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="mailto:hemantkumar.dindi@gmail.com" class="me-3"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://www.linkedin.com/in/hemantkumardindi/" target="_blank" class="me-3"><i class="bi bi-linkedin"></i></a>
+                <a href="tel:+919538388300"><i class="bi bi-telephone-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Scroll-triggered fade-in
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Equalize carousel slide heights
+    function equalizeCarousel(carouselId) {
+        const items = document.querySelectorAll(`${carouselId} .carousel-item`);
+        let maxH = 0;
+        items.forEach(item => {
+            item.style.minHeight = 'auto';
+            const h = item.scrollHeight;
+            if (h > maxH) maxH = h;
+        });
+        items.forEach(item => item.style.minHeight = maxH + 'px');
+        document.querySelector(`${carouselId} .carousel-inner`).style.minHeight = maxH + 'px';
+    }
+    window.addEventListener('load', () => {
+        equalizeCarousel('#competencyCarousel');
+        equalizeCarousel('#experienceCarousel');
+    });
+    window.addEventListener('resize', () => {
+        equalizeCarousel('#competencyCarousel');
+        equalizeCarousel('#experienceCarousel');
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY + 100;
+        sections.forEach(section => {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            const id = section.getAttribute('id');
+            const link = document.querySelector(`.nav-link[href="#${id}"]`);
+            if (link) {
+                if (scrollY >= top && scrollY < top + height) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
