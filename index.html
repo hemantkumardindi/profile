@@ -704,6 +704,17 @@
         equalizeCarousel('#experienceCarousel');
     });
 
+    // Auto-close hamburger menu on nav link click (mobile)
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navCollapse = document.querySelector('#navMenu');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navCollapse.classList.contains('show')) {
+                new bootstrap.Collapse(navCollapse, { toggle: true });
+            }
+        });
+    });
+
     // Active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
