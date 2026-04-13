@@ -73,6 +73,7 @@
         .exp-card ul { flex: 1; overflow-y: auto; max-height: 580px; padding-left: 0; list-style: none; }
         .exp-card ul li { position: relative; padding-left: 20px; margin-bottom: 12px; color: #FAFAFA; font-size: 0.95rem; line-height: 1.65; text-align: justify; }
         .exp-card ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+        .hl { color: #51A2FF; }
 
         /* CAROUSEL CONTROLS */
         .carousel-control-prev, .carousel-control-next { width: 48px; height: 48px; top: 50%; transform: translateY(-50%); background: rgba(56,189,248,0.15); border: 1px solid rgba(56,189,248,0.3); border-radius: 50%; opacity: 1; }
@@ -392,12 +393,12 @@
                             <h3 class="role">Principal Engineer</h3>
                             <p class="period"><i class="bi bi-calendar3 me-1"></i> April 2023 – Present</p>
                             <ul>
-                                <li>Orchestrated the full transition of the Vehicle Data Platform and Slipstream (Confluent Cloud streaming platform) from Mercedes-Benz US to R&amp;D India, bootstrapping new engineering squads and achieving operational self-sufficiency — eliminating dependency on the US team.</li>
-                                <li>Built and scaled a 25+ member engineering organization, driving reduction in attrition through structured mentoring, career pathing, and a culture of ownership.</li>
-                                <li>Engineered and productized Azure Databricks as a governed data platform with Unity Catalog, enabling lineage tracking, fine-grained access control, and self-service analytics.</li>
-                                <li>Deployed open-source platforms (Superset, Kafka, Druid, OpenSearch, Airflow) on AKS with full observability (Datadog, Prometheus, Grafana). Drove FinOps adoption with OpenCost-based dashboards and compute right-sizing.</li>
-                                <li>Overhauled DevSecOps posture by aligning to CIS Benchmarks and Azure Defender, migrating IaC from Pulumi to Terraform.</li>
-                                <li>Enabled Data Mesh architecture by integrating data products into the DDX Marketplace, enabling federated data sharing with policy-enforced governance.</li>
+                                <li>Orchestrated the full transition of the <span class="hl">Vehicle Data Platform</span> and <span class="hl">Slipstream (Confluent Cloud streaming platform)</span> from Mercedes-Benz US to R&amp;D India, bootstrapping new engineering squads and achieving operational self-sufficiency — eliminating dependency on the US team.</li>
+                                <li>Built and scaled a <span class="hl">25+ member engineering organization</span>, driving reduction in attrition through structured mentoring, career pathing, and a culture of ownership.</li>
+                                <li>Engineered and productized <span class="hl">Azure Databricks</span> as a governed data platform with <span class="hl">Unity Catalog</span>, enabling lineage tracking, fine-grained access control, and self-service analytics.</li>
+                                <li>Deployed open-source platforms (<span class="hl">Superset, Kafka, Druid, OpenSearch, Airflow</span>) on <span class="hl">AKS</span> with full observability (Datadog, Prometheus, Grafana). Drove <span class="hl">FinOps</span> adoption with <span class="hl">OpenCost</span>-based dashboards and compute right-sizing.</li>
+                                <li>Overhauled DevSecOps posture by aligning to CIS Benchmarks and Azure Defender, migrating IaC from Pulumi to <span class="hl">Terraform</span>.</li>
+                                <li>Enabled <span class="hl">Data Mesh</span> architecture by integrating data products into the <span class="hl">DDX Marketplace</span>, enabling federated data sharing with policy-enforced governance.</li>
                             </ul>
                         </div>
                     </div>
@@ -409,9 +410,10 @@
                             <h3 class="role">Senior Technical Lead</h3>
                             <p class="period"><i class="bi bi-calendar3 me-1"></i> August 2021 – April 2023</p>
                             <ul>
-                                <li>Co-architected the NextGen Data Platform with Mercedes-Benz US, establishing a unified vehicle and enterprise data framework that consolidated disparate data sources into a single governed pipeline.</li>
-                                <li>Delivered a production-grade platform with integrated observability (logging, monitoring, alerting) and OPA-based policy enforcement, achieving compliance with internal security guardrails from day one.</li>
-                                <li>Engineered IaC using Pulumi (Python) and built FastAPI-based self-service APIs for provisioning and user onboarding. Implemented automated CI/CD pipelines with integrated security scanning, maintaining zero critical vulnerabilities.</li>
+                                <li><span class="hl">First selected member</span> to join a new initiative to build a next-generation Data Platform on Azure, <span class="hl">moving from IT to R&amp;D</span> in collaboration with R&amp;D teams in <span class="hl">Seattle</span> — tasked with building the engineering team in India from the ground up.</li>
+                                <li>Co-architected the <span class="hl">NextGen Data Platform</span> with Mercedes-Benz US, establishing a unified vehicle and enterprise data framework that consolidated disparate data sources into a single governed pipeline.</li>
+                                <li>Delivered a production-grade platform with integrated observability (logging, monitoring, alerting) and <span class="hl">OPA-based policy enforcement</span>, achieving compliance with internal security guardrails from day one.</li>
+                                <li>Engineered IaC using <span class="hl">Pulumi (Python)</span> and built <span class="hl">FastAPI-based self-service APIs</span> for provisioning and user onboarding. Implemented automated CI/CD pipelines with integrated security scanning, maintaining <span class="hl">zero critical vulnerabilities</span>.</li>
                                 <li>Hired and ramped engineers to build the India engineering capability from the ground up, achieving full delivery alignment with global R&amp;D architecture standards.</li>
                                 <li>Defined and enforced SLAs across environments (Dev, Staging, Prod), maintaining high platform availability and reducing MTTR through structured on-call rotations.</li>
                             </ul>
@@ -425,13 +427,22 @@
                             <h3 class="role">Principal Consultant</h3>
                             <p class="period"><i class="bi bi-calendar3 me-1"></i> April 2017 – July 2021</p>
                             <ul>
-                                <li>Sustained 200+ node Hadoop clusters at high availability while executing a modernization roadmap, reducing unplanned incidents through proactive capacity planning.</li>
-                                <li>Evaluated, implemented, and productionized Apache NiFi as the enterprise data integration platform, processing data flows daily and upskilling the operations team.</li>
-                                <li>Planned and executed the full cloud migration from on-premise Hadoop to Azure HDInsight — migrating data with zero data loss, completing the transition ahead of schedule.</li>
-                                <li>Selected as the sole India R&amp;D representative to co-develop an analytics platform for a global cloud initiative.</li>
-                                <li>Architected a Kubernetes-based analytics platform using fully open-source tools (Superset, Druid), serving global users.</li>
-                                <li>Designed and delivered an enterprise container registry on open-source Harbor, deployed across 3 environments and 2 regions (APAC, EMEA).</li>
-                                <li>Bootstrapped and led a women-majority engineering team for the container registry platform, contributing to MBRDI's diversity &amp; inclusion goals.</li>
+                                <li>Took over the responsibility as the <span class="hl">Daimler Service Manager</span>, managing Hadoop cluster operations, vendor management, and use-case onboarding — creating success stories that demonstrated the platform's business value.</li>
+                                <li>Completed a <span class="hl">2-month onsite engagement in Stuttgart and Sunnyvale</span> to present platform capabilities and understand the larger demands and challenges in the data domain — aligning the India roadmap with global strategic priorities.</li>
+                                <li>As part of the <span class="hl">Global IT Strategy</span> to migrate to cloud, served on the core planning team — participating in multiple workshops to define the adoption approach, target architecture, and migration roadmap.</li>
+                                <li>Planned and executed the migration of <span class="hl">DBDP</span> from on-premise Hortonworks Hadoop to <span class="hl">Azure HDInsight</span>, ensuring a seamless data transfer from on-premise to cloud with zero data loss and completing the transition as per the schedule.</li>
+                                <li>Ensured all existing jobs, pipelines, and scheduled workloads were successfully migrated to HDInsight, validating end-to-end data integrity and operational continuity post-migration.</li>
+                                <li>Handed over all DBDP responsibilities to the cloud operations team, transitioning to support other strategic initiatives as directed by leadership.</li>
+                                <li>Selected as the <span class="hl">sole India R&amp;D representative</span> to co-develop an analytics platform for a global private cloud initiative — a landmark collaboration with teams from <span class="hl">India, Germany, Spain, Malaysia, and the US</span>.</li>
+                                <li>Architected a <span class="hl">Kubernetes-based analytics platform</span> using fully open-source tools (<span class="hl">MinIO, Apache Spark, Apache Airflow, Superset</span>) to serve global users.</li>
+                                <li>Presented the Analytics layer to <span class="hl">Daimler Global Leadership and the Board</span>; project was subsequently put on hold due to the corporate split into Mercedes-Benz AG and Daimler Truck.</li>
+                                <li>Leveraging delivery credentials from the Kubernetes-based Analytics Layer, received the opportunity to bootstrap a team in India to build a container registry platform and replace the existing enterprise registry based on Quay.</li>
+                                <li>Bootstrapped and led a <span class="hl">women-majority 5+ engineering team</span> for the container registry platform, contributing to MBRDI's diversity &amp; inclusion goals.</li>
+                                <li>Evaluated open-source <span class="hl">Harbor</span> as the right-fit alternative to <span class="hl">Quay</span>, assessing feature parity, security capabilities, and enterprise readiness.</li>
+                                <li>Designed and delivered an enterprise container registry on open-source <span class="hl">Harbor</span>, deployed across <span class="hl">3 environments and 2 regions (APAC, EMEA)</span>.</li>
+                                <li>Ensured all container images were seamlessly migrated from Quay to Harbor with zero disruption to downstream CI/CD pipelines.</li>
+                                <li>Enabled <span class="hl">Trivy-based vulnerability scanning</span> and <span class="hl">signature-based validation</span> of images, strengthening the security posture of the container supply chain.</li>
+                                <li>Reviewed and approved Pull Requests as the technical lead, ensuring code quality and adherence to platform standards across all development activities.</li>
                             </ul>
                         </div>
                     </div>
@@ -443,11 +454,21 @@
                             <h3 class="role">Senior Consultant</h3>
                             <p class="period"><i class="bi bi-calendar3 me-1"></i> May 2015 – March 2017</p>
                             <ul>
-                                <li>Owned and operated a 200+ node enterprise Hadoop cluster serving business users, maintaining uptime SLA and processing TB-scale data daily across batch and scheduled workloads.</li>
-                                <li>Led a 12+ member SRE team, instituting proactive monitoring and runbook automation that reduced mean time to detection (MTTD) and cut unplanned downtime.</li>
-                                <li>Managed end-to-end cluster lifecycle — upgrades, patching, capacity planning, user provisioning, and job scheduling — executing major upgrades with zero production impact.</li>
-                                <li>Partnered with Linux, Security, and DBA teams to enforce compliance and governance standards, achieving high audit pass rates.</li>
-                                <li>Delivered weekly capacity and performance reports to senior leadership, surfacing actionable insights that drove strategic infrastructure investments.</li>
+                                <li>Joined as a Senior Consultant to deliver as a <span class="hl">Hortonworks Hadoop Cluster Administrator</span>, taking ownership of the enterprise big data infrastructure from day one.</li>
+                                <li>Collaborated with Hortonworks architects to deploy the <span class="hl">Daimler Big Data Platform (DBDP)</span> based on the Hortonworks Hadoop Distribution — establishing the foundational data infrastructure for the organization.</li>
+                                <li>Co-ordinated with Data Center infrastructure teams to specify and validate the right server configurations, networking, and storage layouts for optimal Hadoop cluster performance.</li>
+                                <li>Deployed <span class="hl">multi-node, high-availability Hadoop clusters</span> across Dev, Non-Prod, and Production environments for the <span class="hl">EU region</span>, and subsequently delivered Hadoop clusters for the <span class="hl">AMAP region</span> — expanding the platform's global footprint.</li>
+                                <li>Delivered the <span class="hl">Daimler Data Flow Platform (DDFP)</span> for the EU region, collaborating with Hortonworks architects to deploy the Hortonworks DataFlow distribution for real-time data ingestion and routing.</li>
+                                <li>Evaluated, implemented, and productionized <span class="hl">Apache NiFi</span> as the enterprise data integration platform, processing data flows daily and upskilling the operations team.</li>
+                                <li>Established <span class="hl">ITIL-aligned Service Management</span> processes in compliance with <span class="hl">Daimler Data Center Operations</span> standards, covering incident, change, and problem management for the Hadoop platform.</li>
+                                <li>Established regular cadences to respond to customer queries and defined a RACI matrix for ecosystem users — bringing clarity to roles, responsibilities, and escalation paths.</li>
+                                <li>Prepared, reviewed, published, and maintained official documentation for DBDP and DDFP — establishing a single source of truth for platform usage, onboarding, and operational procedures.</li>
+                                <li>Enabled a structured channel for user and use-case onboarding, and conducted onsite handholding sessions with teams to accelerate platform adoption and reduce time-to-value for new data workloads.</li>
+                                <li>Drove one of the first self-service portal initiatives built on <span class="hl">Python + Django</span> to accelerate the onboarding process, reducing manual provisioning overhead and improving time-to-value for new users.</li>
+                                <li>Managed end-to-end cluster lifecycle — upgrades, patching, capacity planning, user provisioning, and job scheduling — executing major upgrades with <span class="hl">zero production impact</span> across an overall <span class="hl">15+ PB Hadoop cluster estate</span>.</li>
+                                <li>Strengthened system resilience and reduced downtime through proactive monitoring and incident management practices.</li>
+                                <li>Took over the responsibility as the <span class="hl">Daimler System Responsible</span>, serving as the <span class="hl">single point of contact for DBDP</span> — managing stakeholders across Indian leadership and Headquarter leadership.</li>
+                                <li>Scaled the team from <span class="hl">5+ to 12+ members</span>, initially leading an external partner team and progressively growing the in-house capability to maintain scalable and reliable Hadoop clusters with consistent SLA adherence.</li>
                             </ul>
                         </div>
                     </div>
@@ -459,13 +480,13 @@
                             <h3 class="role">Senior Software Engineer</h3>
                             <p class="period"><i class="bi bi-calendar3 me-1"></i> October 2013 – May 2015 &nbsp;|&nbsp; Hyderabad &amp; Bangalore</p>
                             <ul>
-                                <li>Joined Tech Mahindra as a Teradata Developer; during the project discovery phase with BU Heads and CoE Leaders, identified and secured an opportunity to join the newly established Big Data Center of Excellence (CoE) — pivoting career trajectory toward distributed data platforms.</li>
+                                <li>Joined Tech Mahindra as a Teradata Developer; during the project discovery phase with BU Heads and CoE Leaders, identified and secured an opportunity to join the newly established <span class="hl">Big Data Center of Excellence (CoE)</span> — pivoting career trajectory toward distributed data platforms.</li>
                                 <li>Served as the primary Point of Contact with the local infrastructure team to provision and configure the required hardware and network for Hadoop cluster environments, enabling the CoE to rapidly stand up evaluation and PoC infrastructure.</li>
-                                <li>Evaluated Hortonworks, Cloudera, MapR, open-source Hadoop, IBM BigInsights, and HP IDOL — delivering a comprehensive comparative analysis covering performance, scalability, licensing, and ecosystem maturity that informed enterprise-wide distribution selection.</li>
-                                <li>Delivered Proofs of Concept (PoCs) for global customers across business analytics, log processing, and predictive use cases, directly contributing to new client wins.</li>
+                                <li>Evaluated <span class="hl">Hortonworks, Cloudera, MapR, open-source Hadoop, IBM BigInsights, and HP IDOL</span> — delivering a comprehensive comparative analysis covering performance, scalability, licensing, and ecosystem maturity that informed enterprise-wide distribution selection.</li>
+                                <li>Delivered <span class="hl">Proofs of Concept (PoCs)</span> for global customers across business analytics, log processing, and predictive use cases, directly contributing to <span class="hl">new client wins</span>.</li>
                                 <li>Maintained thorough documentation for every PoC, presenting the strengths, limitations, and challenges to CoE leadership — enabling data-driven technology decisions and knowledge reuse across engagements.</li>
                                 <li>Trained engineers on Hadoop ecosystem components and cluster operations, accelerating CoE capability maturity and enabling self-service big data adoption.</li>
-                                <li>After one year in the CoE, secured an opportunity to support a major German automobile manufacturer on their journey to adopt Hortonworks-based Hadoop platforms — relocated to Bangalore to drive hands-on delivery and platform enablement for the client.</li>
+                                <li>After one year in the CoE, secured an opportunity to support a <span class="hl">major German automobile manufacturer</span> on their journey to adopt Hortonworks-based Hadoop platforms — relocated to Bangalore to drive hands-on delivery and platform enablement for the client.</li>
                             </ul>
                         </div>
                     </div>
@@ -477,14 +498,14 @@
                             <h3 class="role">Senior Software Engineer</h3>
                             <p class="period"><i class="bi bi-calendar3 me-1"></i> May 2010 – September 2013 &nbsp;|&nbsp; Hyderabad</p>
                             <ul>
-                                <li>Joined as a Software Engineer — Mainframes and was assigned to the RBC (Royal Bank of Canada) engagement, delivering JCL, COBOL, and DB2 development for the bank's core batch and transaction processing systems.</li>
-                                <li>Hand-picked as the only developer from the Hyderabad ODC to travel to Bangalore for Knowledge Transfer sessions, facilitating a seamless project handover from the Bangalore ODC to Hyderabad with zero delivery disruption.</li>
-                                <li>Performed a comprehensive reverse analysis of the entire end-to-end application landscape, earning formal appreciation from the client and project leadership for uncovering undocumented dependencies and data flows.</li>
+                                <li>Joined as a Software Engineer — Mainframes and was assigned to the <span class="hl">RBC (Royal Bank of Canada)</span> engagement, delivering JCL, COBOL, and DB2 development for the bank's core batch and transaction processing systems.</li>
+                                <li><span class="hl">Hand-picked as the only developer</span> from the Hyderabad ODC to travel to Bangalore for Knowledge Transfer sessions, facilitating a seamless project handover from the Bangalore ODC to Hyderabad with zero delivery disruption.</li>
+                                <li>Performed a comprehensive reverse analysis of the entire end-to-end application landscape, earning <span class="hl">formal appreciation from the client and project leadership</span> for uncovering undocumented dependencies and data flows.</li>
                                 <li>Contributed to JCL, DB2 and COBOL development across multiple release cycles, participating in requirement gathering, coding, and unit testing to ensure on-time, defect-free deliveries.</li>
-                                <li>Upskilled into SAS and Teradata, independently supporting Teradata-based data requirements and expanding the team's delivery capability beyond mainframe workloads.</li>
+                                <li>Upskilled into <span class="hl">SAS and Teradata</span>, independently supporting Teradata-based data requirements and expanding the team's delivery capability beyond mainframe workloads.</li>
                                 <li>Supported production Go-Live activities including job scheduling validation, smoke testing, and post-deployment monitoring — contributing to successful, zero-incident releases.</li>
                                 <li>Proactively explored emerging technologies such as Hadoop and Big Data ecosystems beyond the mainframe stack, building foundational knowledge to stay future-ready and positioning for the industry's shift toward distributed data platforms.</li>
-                                <li>Promoted to Senior Software Engineer in recognition of technical depth, cross-skill versatility, and consistent delivery excellence.</li>
+                                <li><span class="hl">Promoted to Senior Software Engineer</span> in recognition of technical depth, cross-skill versatility, and consistent delivery excellence.</li>
                             </ul>
                         </div>
                     </div>
