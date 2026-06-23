@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,35 +9,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --accent: #38bdf8;
-            --accent2: #818cf8;
-            --gradient: linear-gradient(135deg, #38bdf8, #818cf8);
+            --accent: #0284c7;
+            --accent2: #4f46e5;
+            --gradient: linear-gradient(135deg, #0284c7, #4f46e5);
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-card2: #f1f5f9;
+            --border: rgba(0,0,0,0.08);
+            --text-primary: #0f172a;
+            --text-muted: #475569;
+            --text-subtle: #94a3b8;
         }
-        body { font-family: 'Roboto', system-ui, -apple-system, sans-serif; scroll-behavior: smooth; font-size: 1.05rem; }
+        body { font-family: 'Roboto', system-ui, -apple-system, sans-serif; scroll-behavior: smooth; font-size: 1.05rem; background: var(--bg-page); color: var(--text-primary); }
 
         /* NAVBAR */
-        .navbar { backdrop-filter: blur(16px); background: rgba(15, 23, 42, 0.85) !important; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .navbar { backdrop-filter: blur(16px); background: rgba(255,255,255,0.92) !important; border-bottom: 1px solid rgba(0,0,0,0.08); }
         .navbar-brand { font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.4rem; }
-        .nav-link { font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; color: #FAFAFA !important; }
+        .nav-link { font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; color: #1e293b !important; }
         .nav-link:hover, .nav-link.active { color: var(--accent) !important; }
 
         /* HERO */
         .hero-section {
             min-height: 100vh; display: flex; align-items: center;
-            background: linear-gradient(160deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            background: linear-gradient(160deg, #e0f2fe 0%, #ede9fe 50%, #e0f2fe 100%);
             position: relative; overflow: hidden;
         }
         .hero-section::before {
             content: ''; position: absolute; top: -50%; right: -30%; width: 80%; height: 200%;
-            background: radial-gradient(circle, rgba(56,189,248,0.06) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(2,132,199,0.07) 0%, transparent 60%);
             pointer-events: none;
         }
         .profile-pic { width: 300px; height: 300px; }
-        .hero-badge { display: inline-block; padding: 6px 18px; border-radius: 50px; font-size: 0.82rem; font-weight: 600; background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.25); color: var(--accent); margin-bottom: 16px; }
-        .hero-title { font-size: 3.2rem; font-weight: 800; line-height: 1.1; }
+        .hero-badge { display: inline-block; padding: 6px 18px; border-radius: 50px; font-size: 0.82rem; font-weight: 600; background: rgba(2,132,199,0.1); border: 1px solid rgba(2,132,199,0.3); color: var(--accent); margin-bottom: 16px; }
+        .hero-title { font-size: 3.2rem; font-weight: 800; line-height: 1.1; color: #0f172a; }
         .hero-title span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-subtitle { color: var(--accent); font-weight: 600; font-size: 1.15rem; }
-        .hero-summary { color: #FAFAFA; font-size: 1.1rem; line-height: 1.75; max-width: 680px; text-align: justify; }
+        .hero-subtitle { color: var(--accent2); font-weight: 600; font-size: 1.15rem; }
+        .hero-summary { color: #1e293b; font-size: 0.95rem; line-height: 1.75; max-width: 680px; text-align: justify; }
 
         /* SECTION HEADERS */
         .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
@@ -46,79 +53,196 @@
 
         /* COMPETENCY CAROUSEL */
         .competency-slide {
-            background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.08);
+            background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 16px; padding: 40px; min-height: 300px;
-            transition: all 0.3s; color: #FAFAFA;
+            transition: all 0.3s; color: var(--text-primary);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
         }
         #competencyCarousel .carousel-inner { min-height: 320px; }
         #competencyCarousel .carousel-item { min-height: 320px; }
-        .competency-slide:hover { border-color: rgba(56,189,248,0.3); }
+        .competency-slide:hover { border-color: rgba(2,132,199,0.3); box-shadow: 0 4px 20px rgba(2,132,199,0.1); }
         .competency-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-        .competency-icon { font-size: 2rem; }
-        .competency-slide h4 { font-weight: 700; font-size: 1.2rem; margin: 0; color: #38bdf8; }
-        .tag { display: inline-block; padding: 6px 16px; margin: 4px; border-radius: 8px; font-size: 0.88rem; font-weight: 500; background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.15); color: #FAFAFA; transition: all 0.2s; }
-        .tag:hover { background: rgba(56,189,248,0.15); color: #fff; }
+        .competency-icon { font-size: 1.5rem; color: var(--accent); }
+        .competency-slide h4 { font-weight: 700; font-size: 1.2rem; margin: 0; color: var(--accent); }
+        .tag { display: inline-block; padding: 6px 16px; margin: 4px; border-radius: 8px; font-size: 0.88rem; font-weight: 500; background: rgba(2,132,199,0.07); border: 1px solid rgba(2,132,199,0.18); color: #1e293b; transition: all 0.2s; }
+        .tag:hover { background: rgba(2,132,199,0.15); color: #0f172a; }
 
         /* EXPERIENCE CAROUSEL */
         #experienceCarousel .carousel-inner { min-height: 720px; }
         #experienceCarousel .carousel-item { min-height: 720px; }
         .exp-card {
-            background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.08);
+            background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 16px; padding: 36px;
             min-height: 700px; display: flex; flex-direction: column;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
         }
         .exp-card .company { font-size: 0.85rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        .exp-card .role { font-size: 1.25rem; font-weight: 700; margin: 6px 0; color: #FAFAFA; }
-        .exp-card .period { font-size: 0.85rem; color: #FAFAFA; opacity: 0.7; margin-bottom: 20px; }
+        .exp-card .role { font-size: 1.25rem; font-weight: 700; margin: 6px 0; color: var(--text-primary); }
+        .exp-card .period { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
         .exp-card ul { flex: 1; overflow-y: auto; max-height: 580px; padding-left: 0; list-style: none; }
-        .exp-card ul li { position: relative; padding-left: 20px; margin-bottom: 12px; color: #FAFAFA; font-size: 0.95rem; line-height: 1.65; text-align: justify; }
+        .exp-card ul li { position: relative; padding-left: 20px; margin-bottom: 12px; color: #334155; font-size: 0.95rem; line-height: 1.65; text-align: justify; }
         .exp-card ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-        .hl { color: #51A2FF; }
+        .hl { color: var(--accent); font-weight: 600; }
 
         /* CAROUSEL CONTROLS */
-        .carousel-control-prev, .carousel-control-next { width: 48px; height: 48px; top: 50%; transform: translateY(-50%); background: rgba(56,189,248,0.15); border: 1px solid rgba(56,189,248,0.3); border-radius: 50%; opacity: 1; }
+        .carousel-control-prev, .carousel-control-next { width: 48px; height: 48px; top: 50%; transform: translateY(-50%); background: rgba(2,132,199,0.1); border: 1px solid rgba(2,132,199,0.25); border-radius: 50%; opacity: 1; }
         .carousel-control-prev { left: -60px; }
         .carousel-control-next { right: -60px; }
-        .carousel-control-prev:hover, .carousel-control-next:hover { background: rgba(56,189,248,0.3); }
-        .carousel-indicators [data-bs-target] { width: 10px; height: 10px; border-radius: 50%; background-color: #EDE6E4 !important; opacity: 0.4 !important; border: none; margin: 0 5px; }
+        .carousel-control-prev:hover, .carousel-control-next:hover { background: rgba(2,132,199,0.2); }
+        .carousel-control-prev-icon, .carousel-control-next-icon { filter: invert(1) sepia(1) saturate(2) hue-rotate(180deg); }
+        .carousel-indicators [data-bs-target] { width: 10px; height: 10px; border-radius: 50%; background-color: #cbd5e1 !important; opacity: 1 !important; border: none; margin: 0 5px; }
         .carousel-indicators .active { background-color: var(--accent) !important; opacity: 1 !important; }
 
         /* CERTIFICATIONS */
         .cert-card {
-            background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.08);
+            background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 12px; padding: 20px; text-align: center;
             transition: all 0.3s; height: 100%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-        .cert-card:hover { border-color: rgba(129,140,248,0.4); transform: translateY(-4px); }
+        .cert-card:hover { border-color: rgba(79,70,229,0.4); transform: translateY(-4px); box-shadow: 0 6px 20px rgba(79,70,229,0.1); }
         .cert-icon { font-size: 2rem; margin-bottom: 10px; color: var(--accent2); }
-        .cert-card h6 { font-size: 0.9rem; font-weight: 600; margin: 0; }
+        .cert-card h6 { font-size: 0.9rem; font-weight: 600; margin: 0; color: #1e293b; }
 
         /* AWARDS */
         .award-item {
             display: flex; align-items: flex-start; gap: 14px;
-            background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.08);
+            background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 12px; padding: 18px 22px; transition: all 0.2s; height: 100%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-        .award-item:hover { border-color: rgba(129,140,248,0.3); }
-        .award-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
-        .award-title { font-size: 0.92rem; font-weight: 600; }
-        .award-org { font-size: 0.78rem; color: #FAFAFA; opacity: 0.7; margin-top: 2px; }
+        .award-item:hover { border-color: rgba(79,70,229,0.3); box-shadow: 0 4px 16px rgba(79,70,229,0.08); }
+        .award-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; color: var(--accent2); }
+        .award-title { font-size: 0.92rem; font-weight: 600; color: var(--text-primary); }
+        .award-org { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
 
         /* EDUCATION */
         .edu-card {
-            background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.08);
+            background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 16px; padding: 32px; display: flex; align-items: center; gap: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
         }
-        .edu-icon-wrap { width: 64px; height: 64px; border-radius: 16px; background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
+        .edu-icon-wrap { width: 64px; height: 64px; border-radius: 16px; background: rgba(2,132,199,0.08); border: 1px solid rgba(2,132,199,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; color: var(--accent); }
+
+        /* LEADERSHIP ROLES SECTION */
+        .roles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-bottom: 40px; }
+        .role-chip {
+            display: flex; align-items: flex-start; gap: 12px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 16px 20px;
+            transition: all 0.2s;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+        }
+        .role-chip:hover { border-color: rgba(2,132,199,0.35); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(2,132,199,0.1); }
+        .role-chip-icon { font-size: 1rem; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+        .role-chip-text { font-size: 0.88rem; font-weight: 600; color: #1e293b; line-height: 1.45; }
+        .role-chip-org { font-size: 0.75rem; color: #475569; margin-top: 2px; }
+        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+        .pillar-card {
+            background: var(--bg-card2); border: 1px solid rgba(79,70,229,0.12);
+            border-radius: 14px; padding: 22px 26px;
+            transition: all 0.25s;
+        }
+        .pillar-card:hover { border-color: rgba(79,70,229,0.3); box-shadow: 0 6px 24px rgba(79,70,229,0.08); }
+        .pillar-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .pillar-icon { font-size: 1.1rem; color: var(--accent2); flex-shrink: 0; }
+        .pillar-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); }
+        .pillar-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+        .pillar-list li { font-size: 0.82rem; color: #334155; line-height: 1.5; padding-left: 14px; position: relative; }
+        .pillar-list li::before { content: '›'; position: absolute; left: 0; color: var(--accent2); font-weight: 700; }
+
+        /* CAREER SNAPSHOT BANNER */
+        .snapshot-bar {
+            background: linear-gradient(135deg, rgba(56,189,248,0.07) 0%, rgba(129,140,248,0.07) 100%);
+            border-top: 1px solid rgba(56,189,248,0.15);
+            border-bottom: 1px solid rgba(129,140,248,0.15);
+            padding: 28px 0;
+        }
+        .snapshot-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+        .snapshot-item { display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; min-width: 130px; }
+        .snapshot-value {
+            font-size: 1.75rem; font-weight: 900; line-height: 1;
+            background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 5px;
+        }
+        .snapshot-label { font-size: 0.78rem; font-weight: 600; color: #475569; letter-spacing: 0.6px; text-transform: uppercase; }
+        .snapshot-sub { font-size: 0.75rem; color: #475569; margin-top: 3px; }
+        .snapshot-divider { width: 1px; background: rgba(0,0,0,0.1); align-self: stretch; margin: 4px 0; }
+        @media (max-width: 768px) { .snapshot-divider { display: none; } .snapshot-item { min-width: 40%; } }
+
+        /* CURRENT FOCUS */
+        .focus-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+        .focus-card {
+            background: var(--bg-card); border: 1px solid rgba(79,70,229,0.15);
+            border-radius: 12px; padding: 18px 20px;
+            display: flex; align-items: center; gap: 14px;
+            transition: all 0.25s;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+        }
+        .focus-card:hover { border-color: rgba(79,70,229,0.4); transform: translateY(-3px); box-shadow: 0 6px 24px rgba(79,70,229,0.1); }
+        .focus-icon { font-size: 1.3rem; flex-shrink: 0; color: var(--accent2); }
+        .focus-label { font-size: 0.92rem; font-weight: 600; color: #1e293b; line-height: 1.4; }
+        .focus-pill { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; background: rgba(79,70,229,0.08); border: 1px solid rgba(79,70,229,0.25); color: var(--accent2); margin-bottom: 10px; }
+
+        /* EARLIER CAREER CONDENSED */
+        .exp-card.condensed { min-height: auto; }
+        .exp-card.condensed ul { max-height: none; overflow-y: visible; }
+        .earlier-career-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .earlier-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 28px 32px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .earlier-card .company { font-size: 0.85rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .earlier-card .role { font-size: 1.1rem; font-weight: 700; margin: 6px 0 4px; color: var(--text-primary); }
+        .earlier-card .period { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 16px; }
+        .earlier-card ul { padding-left: 0; list-style: none; margin: 0; }
+        .earlier-card ul li { position: relative; padding-left: 18px; margin-bottom: 9px; color: #334155; font-size: 0.9rem; line-height: 1.6; }
+        .earlier-card ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+        @media (max-width: 768px) { .earlier-career-grid { grid-template-columns: 1fr; } }
+
+        /* KEY ACHIEVEMENTS */
+        .achievement-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+        .achievement-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 20px 24px;
+            display: flex; align-items: flex-start; gap: 16px;
+            transition: all 0.25s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .achievement-card:hover { border-color: rgba(2,132,199,0.35); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(2,132,199,0.1); }
+        .achievement-num { font-size: 1.6rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; flex-shrink: 0; min-width: 36px; }
+        .achievement-text { font-size: 0.95rem; color: #334155; line-height: 1.55; font-weight: 500; }
+        .achievement-text strong { color: var(--accent); }
+
+        /* THOUGHT LEADERSHIP */
+        .tl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .tl-card {
+            background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px; padding: 24px 28px;
+            display: flex; flex-direction: column; gap: 10px;
+            transition: all 0.25s;
+        }
+        .tl-card:hover { border-color: rgba(56,189,248,0.35); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(56,189,248,0.07); }
+        .tl-card a { text-decoration: none; }
+        .tl-card a:hover .tl-title { color: var(--accent); }
+        .tl-type { font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent2); margin-bottom: 2px; }
+        .tl-title { font-size: 1rem; font-weight: 700; color: #0f172a; line-height: 1.4; transition: color 0.2s; }
+        .tl-meta { font-size: 0.82rem; color: #475569; }
+        .tl-desc { font-size: 0.88rem; color: #334155; line-height: 1.6; }
+        .tl-link { font-size: 0.82rem; color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; margin-top: auto; }
+        .tl-placeholder { opacity: 0.45; font-style: italic; }
 
         /* FOOTER */
-        .footer { background: #0f172a; border-top: 1px solid rgba(255,255,255,0.06); }
-        .footer a { color: var(--accent); text-decoration: none; }
-        .footer a:hover { color: var(--accent2); }
+        .footer { background: #1e293b; border-top: 1px solid rgba(0,0,0,0.1); }
+        .footer a { color: #7dd3fc; text-decoration: none; }
+        .footer a:hover { color: #a5b4fc; }
 
         /* ANIMATIONS */
         .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
+        section:not(.hero-section) { background: var(--bg-page); }
+        section:nth-child(even):not(.hero-section) { background: var(--bg-card2); }
 
         /* RESPONSIVE — TABLET */
         @media (max-width: 991px) {
@@ -179,7 +303,10 @@
         <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav ms-auto gap-1">
                 <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#leadership">Leadership</a></li>
+                <li class="nav-item"><a class="nav-link" href="#focus">Focus</a></li>
                 <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
                 <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                 <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
                 <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
@@ -194,30 +321,225 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8">
-                <div class="hero-badge">15+ Years in Data &amp; Cloud Engineering</div>
+                <div class="hero-badge">Platform Engineering &middot; Data Platforms &middot; AI Enablement Leadership</div>
                 <h1 class="hero-title mb-3">Hemant <span>Dindi</span></h1>
-                <p class="hero-subtitle mb-3">Principle Engineer | Data &amp; Cloud Infrastructure | Platform Strategy</p>
+                <p class="hero-subtitle mb-3">Principal Engineer &middot; Systems Architect &middot; Product Owner &middot; Technical People Leader</p>
                 <p class="hero-summary mb-4">
-                    Product-focused Engineering Leader driving the evolution of enterprise data platforms at Mercedes-Benz R&amp;D India.
-                    I lead a cross-functional organization of 25+ engineers to deliver developer-centric infrastructure leveraging
-                    Azure, Confluent Kafka, Databricks, and Open Source solutions. Proven track record in architecting self-service,
-                    governed platforms that transform raw vehicle telemetry into actionable economic utility while upholding rigorous
-                    compliance and security standards.
+                    Hands-on technology leader with 15+ years of experience building and scaling enterprise Data Platform Engineering, and AI Enablement capabilities at Mercedes-Benz R&D India. Combines deep technical expertise with product ownership and architecture leadership, actively designing, delivering and maintaining data platforms while leading a multi-disciplinary organization of 25+ engineers.
                 </p>
                 <div class="d-flex flex-wrap gap-3">
                     <a href="mailto:hemantkumar.dindi@gmail.com" class="btn btn-primary px-4">
                         <i class="bi bi-envelope-fill me-2"></i>Email Me
                     </a>
-                    <a href="https://www.linkedin.com/in/hemantkumardindi/" target="_blank" class="btn btn-outline-light px-4">
+                    <a href="https://www.linkedin.com/in/hemantkumardindi/" target="_blank" class="btn btn-primary px-4">
                         <i class="bi bi-linkedin me-2"></i>LinkedIn
                     </a>
-                    <a href="tel:+919538388300" class="btn btn-outline-light px-4">
+                    <a href="tel:+919538388300" class="btn btn-primary px-4">
                         <i class="bi bi-telephone-fill me-2"></i>+91 9538388300
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 d-flex justify-content-center mb-4 mb-lg-0 order-first order-lg-last">
                 <img src="profile-pic.jpg" alt="Hemant Kumar Dindi" class="profile-pic" style="border-radius:50%; object-fit:cover; border: 3px solid rgba(56,189,248,0.4); box-shadow: 0 0 40px rgba(56,189,248,0.15);">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LEADERSHIP ROLES & RESPONSIBILITIES -->
+<section id="leadership" class="py-5">
+    <div class="container py-4">
+        <div class="fade-up">
+            <h2 class="section-title">Leadership <span>Roles &amp; Responsibilities</span></h2>
+            <div class="section-line"></div>
+        </div>
+
+        <h6 class="fade-up mb-3" style="color:#475569; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; font-size:0.78rem;">Current Roles</h6>
+        <div class="roles-grid fade-up">
+            <div class="role-chip">
+                <i class="bi bi-boxes role-chip-icon"></i>
+                <div>
+                    <div class="role-chip-text">Product Owner &mdash; Data Platform Engineering</div>
+                    <div class="role-chip-org">Cloud DevSecOps, Platform Engineering &amp; SRE</div>
+                </div>
+            </div>
+            <div class="role-chip">
+                <i class="bi bi-diagram-3-fill role-chip-icon"></i>
+                <div>
+                    <div class="role-chip-text">Systems Architect &mdash; Data Provisioning ART</div>
+                    <div class="role-chip-org">AI &amp; Analytics Platform Architecture</div>
+                </div>
+            </div>
+            <div class="role-chip">
+                <i class="bi bi-shop role-chip-icon"></i>
+                <div>
+                    <div class="role-chip-text">Data Marketplace SPOC</div>
+                    <div class="role-chip-org">MIC Cloud, MBAG R&amp;D</div>
+                </div>
+            </div>
+            <div class="role-chip">
+                <i class="bi bi-cash-coin role-chip-icon"></i>
+                <div>
+                    <div class="role-chip-text">FinOps Lead &mdash; Data &amp; Analytics Platforms</div>
+                    <div class="role-chip-org">Cloud Cost Governance &amp; Optimization</div>
+                </div>
+            </div>
+            <div class="role-chip">
+                <i class="bi bi-server role-chip-icon"></i>
+                <div>
+                    <div class="role-chip-text">Lead &mdash; Databricks Account Administration</div>
+                    <div class="role-chip-org">MIC Cloud, Mercedes-Benz R&amp;D India</div>
+                </div>
+            </div>
+            <div class="role-chip">
+                <i class="bi bi-people-fill role-chip-icon"></i>
+                <div>
+                    <div class="role-chip-text">Engineering Manager &mdash; Platform Engineering</div>
+                    <div class="role-chip-org">Multi-disciplinary Platform Engineering Team</div>
+                </div>
+            </div>
+            <div class="role-chip">
+                <i class="bi bi-cloud-fill role-chip-icon"></i>
+                <div>
+                    <div class="role-chip-text">Technical Leader &mdash; Cloud Infrastructure Modernization</div>
+                    <div class="role-chip-org">Infrastructure Modernization Initiatives</div>
+                </div>
+            </div>
+            <div class="role-chip">
+                <i class="bi bi-shield-fill-check role-chip-icon"></i>
+                <div>
+                    <div class="role-chip-text">Platform Governance Lead</div>
+                    <div class="role-chip-org">Enterprise Data Platform Standards &amp; Controls</div>
+                </div>
+            </div>
+        </div>
+
+        <h6 class="fade-up mb-3 mt-2" style="color:#475569; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; font-size:0.78rem;">Responsibility Pillars</h6>
+        <div class="pillars-grid fade-up">
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <i class="bi bi-map-fill pillar-icon"></i>
+                    <div class="pillar-title">Platform Strategy &amp; Product Management</div>
+                </div>
+                <ul class="pillar-list">
+                    <li>Define platform vision, roadmap, and investment priorities for enterprise data platforms</li>
+                    <li>Drive adoption of self-service capabilities across engineering and analytics teams</li>
+                    <li>Prioritize platform features based on business value, operational efficiency, and user feedback</li>
+                    <li>Balance platform standardization with developer productivity and business agility</li>
+                </ul>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <i class="bi bi-database-fill pillar-icon"></i>
+                    <div class="pillar-title">Data Platform Architecture</div>
+                </div>
+                <ul class="pillar-list">
+                    <li>Architect scalable data provisioning patterns for AI, Analytics, and Data Products</li>
+                    <li>Establish reference architectures, engineering standards, and reusable platform blueprints</li>
+                    <li>Drive Data Mesh and Data Product adoption across business domains</li>
+                    <li>Govern platform scalability, reliability, and technical debt management</li>
+                </ul>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <i class="bi bi-shield-lock-fill pillar-icon"></i>
+                    <div class="pillar-title">Cloud Governance &amp; Security</div>
+                </div>
+                <ul class="pillar-list">
+                    <li>Define cloud governance guardrails, security baselines, and compliance controls</li>
+                    <li>Drive Infrastructure-as-Code adoption using OpenTofu/Terraform</li>
+                    <li>Establish DevSecOps standards across platform teams</li>
+                    <li>Lead platform risk assessments and security remediation initiatives</li>
+                </ul>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <i class="bi bi-activity pillar-icon"></i>
+                    <div class="pillar-title">Reliability Engineering</div>
+                </div>
+                <ul class="pillar-list">
+                    <li>Champion SRE practices, SLIs, SLOs, and error budget management</li>
+                    <li>Improve platform observability through centralized logging, monitoring, and alerting</li>
+                    <li>Lead incident management and postmortem review processes</li>
+                    <li>Drive operational excellence across all platform environments</li>
+                </ul>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <i class="bi bi-cash-stack pillar-icon"></i>
+                    <div class="pillar-title">FinOps &amp; Cost Optimization</div>
+                </div>
+                <ul class="pillar-list">
+                    <li>Establish cloud cost governance and accountability models</li>
+                    <li>Drive cloud spend optimization across Databricks, Azure, and supporting services</li>
+                    <li>Define chargeback/showback models for platform consumption</li>
+                    <li>Deliver cost transparency and KPI reporting to stakeholders</li>
+                </ul>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <i class="bi bi-person-fill-gear pillar-icon"></i>
+                    <div class="pillar-title">People Leadership &amp; Team Development</div>
+                </div>
+                <ul class="pillar-list">
+                    <li>Provide active career development, technical mentoring, and growth guidance to engineers</li>
+                    <li>Hiring, team building, and performance management across multi-disciplinary platform squads</li>
+                    <li>Set technical strategy and engineering best practices in collaboration with senior engineers</li>
+                    <li>Collaborate closely with business stakeholders to ensure successful project delivery</li>
+                </ul>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <i class="bi bi-robot pillar-icon"></i>
+                    <div class="pillar-title">AI &amp; Agentic Engineering</div>
+                </div>
+                <ul class="pillar-list">
+                    <li>Define strategy for Agentic AI adoption within Platform Engineering and SRE</li>
+                    <li>Establish standards for Agent Security, Observability, and Governance</li>
+                    <li>Drive AI-assisted infrastructure delivery and autonomous platform operations</li>
+                    <li>Evaluate AI-native development approaches versus platform-licensed tooling</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CURRENT FOCUS -->
+<section id="focus" class="py-5" style="background: var(--bg-card2);">
+    <div class="container py-4">
+        <div class="fade-up">
+            <span class="focus-pill">&#9679; Actively Exploring</span>
+            <h2 class="section-title">Current <span>Focus Areas</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="focus-grid fade-up">
+            <div class="focus-card">
+                <div class="focus-icon"><i class="bi bi-robot"></i></div>
+                <div class="focus-label">Agentic AI for Platform Engineering</div>
+            </div>
+            <div class="focus-card">
+                <div class="focus-icon"><i class="bi bi-building-fill-gear"></i></div>
+                <div class="focus-label">AI-assisted Infrastructure Delivery</div>
+            </div>
+            <div class="focus-card">
+                <div class="focus-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                <div class="focus-label">Autonomous SRE Operations</div>
+            </div>
+            <div class="focus-card">
+                <div class="focus-icon"><i class="bi bi-tools"></i></div>
+                <div class="focus-label">OpenTofu Platform Automation</div>
+            </div>
+            <div class="focus-card">
+                <div class="focus-icon"><i class="bi bi-box-seam-fill"></i></div>
+                <div class="focus-label">Data Product Governance &amp; KPIs</div>
+            </div>
+            <div class="focus-card">
+                <div class="focus-icon"><i class="bi bi-cash-coin"></i></div>
+                <div class="focus-label">FinOps &amp; Cost Optimization</div>
+            </div>
+            <div class="focus-card">
+                <div class="focus-icon"><i class="bi bi-wrench-adjustable-circle-fill"></i></div>
+                <div class="focus-label">Developer Experience Platforms</div>
             </div>
         </div>
     </div>
@@ -237,24 +559,25 @@
                     <button type="button" data-bs-target="#competencyCarousel" data-bs-slide-to="0" class="active"></button>
                     <button type="button" data-bs-target="#competencyCarousel" data-bs-slide-to="1"></button>
                     <button type="button" data-bs-target="#competencyCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#competencyCarousel" data-bs-slide-to="3"></button>
                 </div>
                 <div class="carousel-inner">
-                    <!-- Slide 1: Leadership + Cloud -->
+                    <!-- Slide 1: Leadership -->
                     <div class="carousel-item active">
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="competency-slide h-100">
                                     <div class="competency-header">
-                                        <div class="competency-icon">👥</div>
-                                        <h4>Leadership &amp; Delivery</h4>
+                                        <div class="competency-icon"><i class="bi bi-people-fill"></i></div>
+                                        <h4>Engineering Leadership</h4>
                                     </div>
                                     <div>
+                                        <span class="tag">Engineering Management</span>
                                         <span class="tag">Team Building (25+ eng)</span>
-                                        <span class="tag">Program Management</span>
-                                        <span class="tag">SAFe Agile (RTE, SM, PO)</span>
                                         <span class="tag">Strategic Roadmapping</span>
                                         <span class="tag">Talent Acquisition</span>
                                         <span class="tag">Global Distributed Teams</span>
+                                        <span class="tag">Vendor Management</span>
                                         <span class="tag">SLA &amp; On-Call Mgmt</span>
                                         <span class="tag">Risk &amp; Incident Mgmt</span>
                                     </div>
@@ -263,37 +586,40 @@
                             <div class="col-md-6">
                                 <div class="competency-slide h-100">
                                     <div class="competency-header">
-                                        <div class="competency-icon">☁️</div>
-                                        <h4>Cloud &amp; Data Platforms</h4>
+                                        <div class="competency-icon"><i class="bi bi-bullseye"></i></div>
+                                        <h4>Product &amp; Delivery</h4>
                                     </div>
                                     <div>
-                                        <span class="tag">Azure (IaaS/PaaS)</span>
-                                        <span class="tag">Databricks (Unity Catalog)</span>
-                                        <span class="tag">Confluent Kafka</span>
-                                        <span class="tag">Kubernetes (AKS)</span>
-                                        <span class="tag">Hortonworks Hadoop</span>
-                                        <span class="tag">Data Mesh</span>
-                                        <span class="tag">Delta Lake</span>
+                                        <span class="tag">Product Ownership</span>
+                                        <span class="tag">Systems Architecture</span>
+                                        <span class="tag">Platform Engineering</span>
+                                        <span class="tag">SAFe RTE</span>
+                                        <span class="tag">SAFe Architect</span>
+                                        <span class="tag">Scrum Product Owner</span>
+                                        <span class="tag">FinOps</span>
+                                        <span class="tag">Developer Experience</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Slide 2: Open-Source + IaC -->
+                    <!-- Slide 2: Technical Infrastructure -->
                     <div class="carousel-item">
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="competency-slide h-100">
                                     <div class="competency-header">
-                                        <div class="competency-icon">🔧</div>
-                                        <h4>Open-Source &amp; Analytics</h4>
+                                        <div class="competency-icon"><i class="bi bi-cloud-fill"></i></div>
+                                        <h4>Cloud &amp; Infrastructure</h4>
                                     </div>
                                     <div>
-                                        <span class="tag">Apache Kafka</span>
-                                        <span class="tag">Apache Druid</span>
-                                        <span class="tag">Apache Airflow</span>
-                                        <span class="tag">Apache Superset</span>
-                                        <span class="tag">OpenSearch</span>
+                                        <span class="tag">Azure (IaaS/PaaS)</span>
+                                        <span class="tag">Kubernetes (AKS)</span>
+                                        <span class="tag">Terraform / OpenTofu</span>
+                                        <span class="tag">Pulumi</span>
+                                        <span class="tag">Terrakube</span>
+                                        <span class="tag">GitLab CI/CD</span>
+                                        <span class="tag">Azure DevOps</span>
                                         <span class="tag">Harbor</span>
                                     </div>
                                 </div>
@@ -301,54 +627,100 @@
                             <div class="col-md-6">
                                 <div class="competency-slide h-100">
                                     <div class="competency-header">
-                                        <div class="competency-icon">⚙️</div>
-                                        <h4>Infrastructure as Code &amp; Automation</h4>
+                                        <div class="competency-icon"><i class="bi bi-shield-fill-check"></i></div>
+                                        <h4>DevSecOps &amp; Observability</h4>
                                     </div>
                                     <div>
-                                        <span class="tag">Terraform</span>
-                                        <span class="tag">Pulumi</span>
-                                        <span class="tag">Terrakube</span>
-                                        <span class="tag">Python</span>
-                                        <span class="tag">FastAPI</span>
-                                        <span class="tag">Shell</span>
+                                        <span class="tag">Wiz.io</span>
+                                        <span class="tag">SonarQube</span>
+                                        <span class="tag">Black Duck</span>
+                                        <span class="tag">Checkov</span>
+                                        <span class="tag">Datadog</span>
+                                        <span class="tag">Prometheus</span>
+                                        <span class="tag">Grafana</span>
+                                        <span class="tag">Loki</span>
+                                        <span class="tag">OpenCost</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Slide 3: DevSecOps + Observability -->
+                    <!-- Slide 3: Data Platforms -->
                     <div class="carousel-item">
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="competency-slide h-100">
                                     <div class="competency-header">
-                                        <div class="competency-icon">🛡️</div>
-                                        <h4>DevSecOps &amp; Governance</h4>
+                                        <div class="competency-icon"><i class="bi bi-database-fill"></i></div>
+                                        <h4>Data Platforms</h4>
                                     </div>
                                     <div>
-                                        <span class="tag">GitLab CI/CD</span>
-                                        <span class="tag">Azure DevOps</span>
-                                        <span class="tag">Wiz.io</span>
-                                        <span class="tag">SonarQube</span>
-                                        <span class="tag">Black Duck</span>
-                                        <span class="tag">Checkov</span>
+                                        <span class="tag">Azure Databricks</span>
+                                        <span class="tag">Unity Catalog</span>
+                                        <span class="tag">Delta Lake</span>
+                                        <span class="tag">Data Mesh</span>
+                                        <span class="tag">Confluent Kafka</span>
+                                        <span class="tag">Apache Airflow</span>
+                                        <span class="tag">Apache Druid</span>
+                                        <span class="tag">Apache Superset</span>
+                                        <span class="tag">OpenSearch</span>
+                                        <span class="tag">Hortonworks Hadoop</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="competency-slide h-100">
                                     <div class="competency-header">
-                                        <div class="competency-icon">📊</div>
-                                        <h4>Observability &amp; FinOps</h4>
+                                        <div class="competency-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                                        <h4>Infrastructure Automation</h4>
                                     </div>
                                     <div>
-                                        <span class="tag">Datadog</span>
-                                        <span class="tag">Prometheus</span>
-                                        <span class="tag">Grafana</span>
-                                        <span class="tag">Loki</span>
-                                        <span class="tag">OpenSearch</span>
-                                        <span class="tag">OpenCost</span>
-                                        <span class="tag">OpenOps</span>
+                                        <span class="tag">Python</span>
+                                        <span class="tag">FastAPI</span>
+                                        <span class="tag">Shell Scripting</span>
+                                        <span class="tag">Scala</span>
+                                        <span class="tag">SQL</span>
+                                        <span class="tag">Self-Service APIs</span>
+                                        <span class="tag">GitOps</span>
+                                        <span class="tag">OPA Policy Enforcement</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4: AI & Automation -->
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="competency-slide h-100">
+                                    <div class="competency-header">
+                                        <div class="competency-icon"><i class="bi bi-robot"></i></div>
+                                        <h4>AI &amp; Agentic Systems</h4>
+                                    </div>
+                                    <div>
+                                        <span class="tag">Agentic AI</span>
+                                        <span class="tag">MCP (Model Context Protocol)</span>
+                                        <span class="tag">OpenAI Agents SDK</span>
+                                        <span class="tag">LLM Orchestration</span>
+                                        <span class="tag">AI-driven Platform Ops</span>
+                                        <span class="tag">Prompt Engineering</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="competency-slide h-100">
+                                    <div class="competency-header">
+                                        <div class="competency-icon"><i class="bi bi-diagram-3-fill"></i></div>
+                                        <h4>Platform Strategy</h4>
+                                    </div>
+                                    <div>
+                                        <span class="tag">Self-Service Platforms</span>
+                                        <span class="tag">Developer Portals</span>
+                                        <span class="tag">Data Governance</span>
+                                        <span class="tag">FinOps Governance</span>
+                                        <span class="tag">Cost Optimization</span>
+                                        <span class="tag">Capacity Planning</span>
+                                        <span class="tag">Technical Debt Mgmt</span>
                                     </div>
                                 </div>
                             </div>
@@ -366,8 +738,52 @@
     </div>
 </section>
 
+<!-- KEY ACHIEVEMENTS -->
+<section id="achievements" class="py-5">
+    <div class="container py-4">
+        <div class="fade-up">
+            <h2 class="section-title">Selected <span>Achievements</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="achievement-grid fade-up">
+            <div class="achievement-card">
+                <div class="achievement-num">01</div>
+                <div class="achievement-text"><strong>Built &amp; scaled</strong> a 25+ engineer Data Platform organization across India, Germany, and the US — driving promotions, reducing attrition, and building a high-performance engineering culture.</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-num">02</div>
+                <div class="achievement-text"><strong>Transitioned</strong> the Vehicle Data Platform and Confluent Cloud streaming operations from Mercedes-Benz US to R&amp;D India — achieving full operational self-sufficiency and eliminating US dependency.</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-num">03</div>
+                <div class="achievement-text"><strong>Migrated</strong> a 15+ PB Hortonworks Hadoop platform to Azure — executed with zero data loss, on schedule, and with zero production disruption across EU and AMAP regions.</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-num">04</div>
+                <div class="achievement-text"><strong>Delivered</strong> the enterprise Azure Databricks platform with Unity Catalog — enabling end-to-end data lineage, fine-grained access control, and self-service analytics for vehicle and enterprise data consumers.</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-num">05</div>
+                <div class="achievement-text"><strong>Built</strong> an OpenCost-based FinOps program — implemented real-time cost dashboards, right-sizing recommendations, and anomaly detection that delivered measurable Azure cloud spend reduction.</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-num">06</div>
+                <div class="achievement-text"><strong>Established</strong> a self-service platform with FastAPI provisioning APIs and Pulumi IaC — reduced environment setup time from days to hours and maintained zero critical vulnerabilities across production.</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-num">07</div>
+                <div class="achievement-text"><strong>Architected</strong> an open-source Kubernetes analytics platform (MinIO, Spark, Airflow, Superset) as the sole India R&amp;D representative — presented to Daimler Global Leadership and the Board across a 5-country collaboration.</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-num">08</div>
+                <div class="achievement-text"><strong>Introduced</strong> Data Mesh enablement through DDX Marketplace integration — accelerated enterprise data discoverability, reduced time-to-insight, and enabled federated data sharing with policy-enforced governance.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- PROFESSIONAL EXPERIENCE CAROUSEL -->
-<section id="experience" class="py-5" style="background: rgba(15,23,42,0.5);">
+<section id="experience" class="py-5">
     <div class="container py-4">
         <div class="fade-up">
             <h2 class="section-title">Professional <span>Experience</span></h2>
@@ -381,8 +797,6 @@
                     <button type="button" data-bs-target="#experienceCarousel" data-bs-slide-to="1"></button>
                     <button type="button" data-bs-target="#experienceCarousel" data-bs-slide-to="2"></button>
                     <button type="button" data-bs-target="#experienceCarousel" data-bs-slide-to="3"></button>
-                    <button type="button" data-bs-target="#experienceCarousel" data-bs-slide-to="4"></button>
-                    <button type="button" data-bs-target="#experienceCarousel" data-bs-slide-to="5"></button>
                 </div>
                 <div class="carousel-inner">
 
@@ -393,15 +807,15 @@
                             <h3 class="role">Principal Engineer</h3>
                             <p class="period"><i class="bi bi-calendar3 me-1"></i> April 2023 – Present</p>
                             <ul>
-                                <li><strong>People Leadership &amp; Team Development:</strong> Lead, coach, and mentor a <span class="hl">25+ member engineering organization</span> across multiple delivery squads, providing strategic direction through regular 1:1s, structured feedback sessions, career development plans, and performance reviews. Foster a culture of ownership, accountability, innovation, and continuous improvement — driving measurable reduction in attrition, enabling internal promotions, and building a high-performing engineering culture. Actively lead communities of practice, guilds, and knowledge-sharing sessions to uplift collective engineering capability. Recruit, onboard, and develop new engineering talent across the organization.</li>
-                                <li><strong>Systems Architecture — Data Provisioning ART:</strong> Serve as the <span class="hl">Systems Architect for the Data Provisioning ART</span>, defining the technical vision, architecture roadmap, and platform evolution strategy across <span class="hl">Azure Databricks, Confluent Kafka, AKS-hosted open-source platforms</span>, and shared data infrastructure. Ensure applications and digital assets remain secure, scalable, performant, cost-optimized, and technically viable. In partnership with the Product Owner, define independent slices of value that make up the product backlog — prioritized by customer value and documented to enable squads to clearly understand what is needed, why, and how success will be measured.</li>
-                                <li><strong>Platform Transition &amp; Operational Ownership:</strong> Orchestrated the full transition of the <span class="hl">Vehicle Data Platform</span> and <span class="hl">Slipstream (Confluent Cloud streaming platform)</span> from Mercedes-Benz US to R&amp;D India — bootstrapping new engineering squads, defining runbooks and on-call rotations, establishing SLAs across Dev, Staging, and Production environments, and achieving full operational self-sufficiency that eliminated dependency on the US team for day-to-day platform operations.</li>
-                                <li><strong>Stakeholder &amp; Cross-Functional Collaboration:</strong> Build strong working relationships with Product Managers, Architects, Operations, Security, Vendors, Business Stakeholders, and R&amp;D Leadership across <span class="hl">India, US, and Germany</span>. Engage stakeholders through regular cadences to communicate progress, surface risks, drive decisions, and align engineering outcomes to strategic business objectives — ensuring engineering decisions consistently balance feasibility, viability, and sustainability.</li>
-                                <li><strong>Vendor &amp; Partner Management:</strong> Manage end-to-end vendor and service provider relationships across <span class="hl">Azure, Databricks, and Confluent Kafka</span> engagements — overseeing technical architecture alignment, delivery performance, SLA compliance, contract renewals, and escalation management. Support budget forecasting, resource planning, and vendor engagement to maximize platform value and return on investment.</li>
-                                <li><strong>Delivery Planning &amp; Continuous Flow:</strong> Own delivery planning, dependency management, risk reduction, resource allocation, and alignment of engineering capacity to business priorities using <span class="hl">SAFe</span> and <span class="hl">Scrum</span> frameworks. Support delivery leads, iteration managers, and business analysts in planning, estimating, sequencing, and prioritizing work across platform squads. Remove impediments and team blockers. Drive continuous improvement initiatives in delivery processes, tooling, and cross-squad collaboration.</li>
-                                <li><strong>Asset Health, Operations &amp; Platform Stability:</strong> Ensure SLAs, reliability, monitoring, alerting, and on-call processes across all platform environments — leveraging <span class="hl">Datadog, Prometheus, Grafana, and Loki</span> for full-stack observability. Oversee technical debt management, refactoring plans, patching, and upgrades. Maintain and uplift engineering standards across <span class="hl">Terraform IaC</span>, <span class="hl">GitLab CI/CD</span>, and DevSecOps governance (<span class="hl">Wiz.io, SonarQube, Black Duck, Checkov</span>) — ensuring zero critical vulnerabilities across production environments.</li>
-                                <li><strong>FinOps &amp; Cost Governance:</strong> Drive <span class="hl">FinOps</span> adoption across the engineering organization, implementing <span class="hl">OpenCost</span>-based dashboards for real-time cost visibility, compute right-sizing recommendations, and subscription-level spend governance. Ensure cost optimization and environment stability across all Azure subscriptions by establishing budget thresholds, anomaly detection, and monthly cost reviews with leadership.</li>
-                                <li><strong>Strategic Contribution &amp; Data Mesh:</strong> Contribute to Azure cloud strategy, architecture roadmaps, <span class="hl">Data Mesh</span> adoption planning, talent planning, and capability uplift. Enable federated data sharing by integrating data products into the <span class="hl">DDX Marketplace</span> with policy-enforced governance — increasing data discoverability and accelerating time-to-insight across the enterprise.</li>
+                                <li><strong>People Leadership &amp; Team Development:</strong> Built and scaled a <span class="hl">25+ engineer platform organization</span> supporting enterprise data infrastructure across India, Germany, and the US — driving measurable reduction in attrition, enabling internal promotions, and establishing communities of practice, guilds, and structured career development programs that elevated collective engineering capability across all squads.</li>
+                                <li><strong>Systems Architecture — Data Provisioning ART:</strong> Defined and delivered the technical vision, architecture roadmap, and platform evolution strategy as <span class="hl">Systems Architect for the Data Provisioning ART</span> across <span class="hl">Azure Databricks, Confluent Kafka, AKS-hosted open-source platforms</span>, and shared data infrastructure — ensuring every platform asset remained secure, scalable, cost-optimized, and technically viable at enterprise scale.</li>
+                                <li><strong>Platform Transition &amp; Operational Ownership:</strong> Migrated the full <span class="hl">Vehicle Data Platform</span> and <span class="hl">Slipstream (Confluent Cloud streaming platform)</span> from Mercedes-Benz US to R&amp;D India — bootstrapped new engineering squads, authored runbooks and on-call rotations, established SLAs across Dev, Staging, and Production, and achieved complete operational self-sufficiency, eliminating all dependency on the US team.</li>
+                                <li><strong>Stakeholder &amp; Cross-Functional Collaboration:</strong> Aligned engineering outcomes to strategic business objectives across <span class="hl">India, US, and Germany</span> by building trusted relationships with Product Managers, Architects, Operations, Security, Vendors, and R&amp;D Leadership — consistently surfacing risks early, accelerating decisions, and ensuring feasibility, viability, and sustainability shaped every platform commitment.</li>
+                                <li><strong>Vendor &amp; Partner Management:</strong> Negotiated and governed end-to-end vendor relationships across <span class="hl">Azure, Databricks, and Confluent Kafka</span> — delivering architecture alignment, SLA compliance, contract renewals, and escalation resolution while maximizing platform ROI through disciplined budget forecasting and resource planning.</li>
+                                <li><strong>Delivery Planning &amp; Continuous Flow:</strong> Accelerated squad throughput and eliminated cross-team blockers by owning delivery planning, dependency management, and capacity allocation using <span class="hl">SAFe</span> and <span class="hl">Scrum</span> — driving continuous improvement in delivery processes, tooling, and collaboration that measurably reduced cycle time across platform squads.</li>
+                                <li><strong>Platform Stability &amp; DevSecOps:</strong> Sustained zero critical vulnerabilities across all production environments by enforcing engineering standards across <span class="hl">Terraform IaC</span>, <span class="hl">GitLab CI/CD</span>, and DevSecOps governance (<span class="hl">Wiz.io, SonarQube, Black Duck, Checkov</span>) — backed by full-stack observability via <span class="hl">Datadog, Prometheus, Grafana, and Loki</span> with structured on-call, patching, and technical debt reduction programs.</li>
+                                <li><strong>FinOps &amp; Cost Governance:</strong> Saved significant cloud spend by implementing <span class="hl">OpenCost</span>-based real-time cost dashboards, compute right-sizing recommendations, and subscription-level anomaly detection — establishing monthly cost review cadences with leadership that delivered measurable Azure spend reduction across all platform environments.</li>
+                                <li><strong>Strategic Contribution &amp; Data Mesh:</strong> Accelerated enterprise data discoverability and time-to-insight by integrating data products into the <span class="hl">DDX Marketplace</span> with policy-enforced governance — contributing to Azure cloud strategy, <span class="hl">Data Mesh</span> adoption roadmaps, and talent planning that scaled the organization's analytical capability across global R&amp;D.</li>
                             </ul>
                         </div>
                     </div>
@@ -413,104 +827,72 @@
                             <h3 class="role">Senior Technical Lead</h3>
                             <p class="period"><i class="bi bi-calendar3 me-1"></i> August 2021 – April 2023</p>
                             <ul>
-                                <li><strong>Founding Member &amp; Team Builder:</strong> <span class="hl">First selected member</span> to join a new initiative to build a next-generation Data Platform on Azure, <span class="hl">moving from IT to R&amp;D</span> in collaboration with R&amp;D teams in <span class="hl">Seattle</span> — tasked with building the engineering team in India from the ground up. Hired and ramped engineers, achieving full delivery alignment with global R&amp;D architecture standards.</li>
-                                <li><strong>Platform Architecture — Shared Data Platform:</strong> Co-architected the <span class="hl">Shared Data Platform</span> in the <span class="hl">MIC (Mercedes Innovation Cloud)</span>, a dedicated Azure Tenant for R&amp;D Teams, with Mercedes-Benz US — establishing a unified vehicle and enterprise data framework that consolidated disparate data sources into a single governed pipeline serving multiple downstream consumers.</li>
-                                <li><strong>Platform Engineering — Azure Databricks:</strong> Engineered and productized <span class="hl">Azure Databricks</span> as the governed enterprise data platform with <span class="hl">Unity Catalog</span>, enabling end-to-end data lineage tracking, fine-grained access control via row-level and column-level security, <span class="hl">Delta Lake</span> for ACID-compliant storage, and self-service analytics — empowering consumer teams to autonomously discover, access, and analyze vehicle and enterprise data without manual provisioning overhead.</li>
-                                <li><strong>Open-Source Platform Stack on AKS:</strong> Deployed and operated a suite of open-source platforms — <span class="hl">Apache Superset, Apache Kafka, Apache Druid, OpenSearch, Apache Airflow</span> — on <span class="hl">Azure Kubernetes Service (AKS)</span> with enterprise-grade observability using <span class="hl">Datadog, Prometheus, Grafana, and Loki</span>. Ensured platform stability, high availability, and SLA adherence across all environments through structured monitoring, alerting, incident response, and on-call processes.</li>
-                                <li><strong>Infrastructure as Code &amp; Automation:</strong> Engineered IaC using <span class="hl">Pulumi (Python)</span> and built <span class="hl">FastAPI-based self-service APIs</span> for provisioning and user onboarding — cutting environment setup time from days to hours. Implemented automated <span class="hl">GitLab CI/CD</span> pipelines with integrated security scanning, maintaining <span class="hl">zero critical vulnerabilities</span> across all production environments.</li>
-                                <li><strong>DevSecOps &amp; Security Posture:</strong> Delivered a production-grade platform with integrated observability (logging, monitoring, alerting) and <span class="hl">OPA-based policy enforcement</span>, achieving compliance with internal security guardrails from day one. Championed DevSecOps practices across coding, testing, security scanning (<span class="hl">Wiz.io, SonarQube, Black Duck, Checkov</span>), and architecture alignment — aligned to <span class="hl">CIS Benchmarks</span> and <span class="hl">Azure Defender</span> compliance postures.</li>
-                                <li><strong>SLA &amp; Operational Excellence:</strong> Defined and enforced SLAs across environments (Dev, Staging, Prod), maintaining high platform availability and reducing MTTR through structured on-call rotations. Encouraged flow-based continuous delivery through automated CI/CD pipelines with integrated security scanning, supporting teams in production releases and coordination.</li>
+                                <li><strong>Founding Member &amp; Team Builder:</strong> Selected as the <span class="hl">first India engineer</span> to bootstrap a next-generation Azure Data Platform in collaboration with R&amp;D teams in <span class="hl">Seattle</span> — hired and ramped the India engineering team from zero, achieving full delivery alignment with global R&amp;D architecture standards within the first programme increment.</li>
+                                <li><strong>Platform Architecture — Shared Data Platform:</strong> Co-architected the <span class="hl">Shared Data Platform</span> in the <span class="hl">MIC (Mercedes Innovation Cloud)</span> with Mercedes-Benz US — consolidated disparate vehicle and enterprise data sources into a single governed pipeline, eliminating data silos and enabling reliable, low-latency access for multiple downstream consumer teams.</li>
+                                <li><strong>Platform Engineering — Azure Databricks:</strong> Delivered <span class="hl">Azure Databricks</span> as the governed enterprise data platform with <span class="hl">Unity Catalog</span> — enabling end-to-end data lineage, fine-grained row- and column-level access control, <span class="hl">Delta Lake</span> ACID storage, and self-service analytics that eliminated manual provisioning overhead and empowered consumer teams to autonomously discover and analyze vehicle data.</li>
+                                <li><strong>Open-Source Platform Stack on AKS:</strong> Deployed and stabilized a full open-source analytics stack — <span class="hl">Apache Superset, Apache Kafka, Apache Druid, OpenSearch, Apache Airflow</span> — on <span class="hl">Azure Kubernetes Service (AKS)</span>, backed by enterprise-grade observability (<span class="hl">Datadog, Prometheus, Grafana, Loki</span>) that sustained high availability and SLA adherence across all environments.</li>
+                                <li><strong>Infrastructure as Code &amp; Automation:</strong> Reduced environment setup time from days to hours by engineering IaC with <span class="hl">Pulumi (Python)</span> and building <span class="hl">FastAPI-based self-service provisioning APIs</span> — automated end-to-end via <span class="hl">GitLab CI/CD</span> pipelines with integrated security scanning, achieving and maintaining <span class="hl">zero critical vulnerabilities</span> across all production environments.</li>
+                                <li><strong>DevSecOps &amp; Security Posture:</strong> Achieved compliance with internal security guardrails from day one by delivering <span class="hl">OPA-based policy enforcement</span>, full observability, and security scanning (<span class="hl">Wiz.io, SonarQube, Black Duck, Checkov</span>) — aligned to <span class="hl">CIS Benchmarks</span> and <span class="hl">Azure Defender</span> postures, establishing a production-grade security baseline for the entire platform.</li>
+                                <li><strong>SLA &amp; Operational Excellence:</strong> Reduced MTTR and sustained high platform availability by defining and enforcing SLAs across Dev, Staging, and Production environments — delivering flow-based continuous releases through automated CI/CD and structured on-call rotations that gave engineering teams confidence in every production deployment.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Role 3: Principal Consultant -->
+                    <!-- Role 3: Principal Consultant (condensed) -->
                     <div class="carousel-item">
-                        <div class="exp-card">
+                        <div class="exp-card condensed">
                             <p class="company">Mercedes-Benz R&amp;D India Pvt. Ltd</p>
                             <h3 class="role">Principal Consultant</h3>
                             <p class="period"><i class="bi bi-calendar3 me-1"></i> April 2017 – July 2021</p>
                             <ul>
-                                <li>Took over the responsibility as the <span class="hl">Daimler Service Manager</span>, managing Hadoop cluster operations, vendor management, and use-case onboarding — creating success stories that demonstrated the platform's business value.</li>
-                                <li>Completed a <span class="hl">2-month onsite engagement in Stuttgart and Sunnyvale</span> to present platform capabilities and understand the larger demands and challenges in the data domain — aligning the India roadmap with global strategic priorities.</li>
-                                <li>As part of the <span class="hl">Global IT Strategy</span> to migrate to cloud, served on the core planning team — participating in multiple workshops to define the adoption approach, target architecture, and migration roadmap.</li>
-                                <li>Planned and executed the migration of <span class="hl">DBDP</span> from on-premise Hortonworks Hadoop to <span class="hl">Azure HDInsight</span>, ensuring a seamless data transfer from on-premise to cloud with zero data loss and completing the transition as per the schedule.</li>
-                                <li>Ensured all existing jobs, pipelines, and scheduled workloads were successfully migrated to HDInsight, validating end-to-end data integrity and operational continuity post-migration.</li>
-                                <li>Handed over all DBDP responsibilities to the cloud operations team, transitioning to support other strategic initiatives as directed by leadership.</li>
-                                <li>Selected as the <span class="hl">sole India R&amp;D representative</span> to co-develop an analytics platform for a global private cloud initiative — a landmark collaboration with teams from <span class="hl">India, Germany, Spain, Malaysia, and the US</span>.</li>
-                                <li>Architected a <span class="hl">Kubernetes-based analytics platform</span> using fully open-source tools (<span class="hl">MinIO, Apache Spark, Apache Airflow, Superset</span>) to serve global users.</li>
-                                <li>Presented the Analytics layer to <span class="hl">Daimler Global Leadership and the Board</span>; project was subsequently put on hold due to the corporate split into Mercedes-Benz AG and Daimler Truck.</li>
-                                <li>Leveraging delivery credentials from the Kubernetes-based Analytics Layer, received the opportunity to bootstrap a team in India to build a container registry platform and replace the existing enterprise registry based on Quay.</li>
-                                <li>Bootstrapped and led a <span class="hl">women-majority 5+ engineering team</span> for the container registry platform, contributing to MBRDI's diversity &amp; inclusion goals.</li>
-                                <li>Evaluated open-source <span class="hl">Harbor</span> as the right-fit alternative to <span class="hl">Quay</span>, assessing feature parity, security capabilities, and enterprise readiness.</li>
-                                <li>Designed and delivered an enterprise container registry on open-source <span class="hl">Harbor</span>, deployed across <span class="hl">3 environments and 2 regions (APAC, EMEA)</span>.</li>
-                                <li>Ensured all container images were seamlessly migrated from Quay to Harbor with zero disruption to downstream CI/CD pipelines.</li>
-                                <li>Enabled <span class="hl">Trivy-based vulnerability scanning</span> and <span class="hl">signature-based validation</span> of images, strengthening the security posture of the container supply chain.</li>
-                                <li>Reviewed and approved Pull Requests as the technical lead, ensuring code quality and adherence to platform standards across all development activities.</li>
+                                <li>Elevated to <span class="hl">Daimler Service Manager</span> — owned Hadoop operations, vendor management, and cloud migration strategy as a core planning team member, migrating <span class="hl">DBDP from on-premise Hadoop to Azure HDInsight</span> with zero data loss and on-schedule delivery.</li>
+                                <li>Selected as the <span class="hl">sole India R&amp;D representative</span> for a 5-country global private cloud initiative — architected a fully open-source <span class="hl">Kubernetes analytics platform</span> (MinIO, Spark, Airflow, Superset) and presented it to <span class="hl">Daimler Global Leadership and the Board</span>.</li>
+                                <li>Built and led a <span class="hl">women-majority 5+ engineer team</span> to deliver an enterprise <span class="hl">Harbor</span>-based container registry across <span class="hl">3 environments and 2 regions (APAC, EMEA)</span> — migrated all images from Quay with zero CI/CD disruption and enabled Trivy-based vulnerability scanning.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Role 4: Senior Consultant -->
+                    <!-- Role 4: Senior Consultant (condensed) -->
                     <div class="carousel-item">
-                        <div class="exp-card">
+                        <div class="exp-card condensed">
                             <p class="company">Mercedes-Benz R&amp;D India Pvt. Ltd</p>
                             <h3 class="role">Senior Consultant</h3>
                             <p class="period"><i class="bi bi-calendar3 me-1"></i> May 2015 – March 2017</p>
                             <ul>
-                                <li>Joined as a Senior Consultant to deliver as a <span class="hl">Hortonworks Hadoop Cluster Administrator</span>, taking ownership of the enterprise big data infrastructure from day one.</li>
-                                <li>Collaborated with Hortonworks architects to deploy the <span class="hl">Daimler Big Data Platform (DBDP)</span> based on the Hortonworks Hadoop Distribution — establishing the foundational data infrastructure for the organization.</li>
-                                <li>Co-ordinated with Data Center infrastructure teams to specify and validate the right server configurations, networking, and storage layouts for optimal Hadoop cluster performance.</li>
-                                <li>Deployed <span class="hl">multi-node, high-availability Hadoop clusters</span> across Dev, Non-Prod, and Production environments for the <span class="hl">EU region</span>, and subsequently delivered Hadoop clusters for the <span class="hl">AMAP region</span> — expanding the platform's global footprint.</li>
-                                <li>Delivered the <span class="hl">Daimler Data Flow Platform (DDFP)</span> for the EU region, collaborating with Hortonworks architects to deploy the Hortonworks DataFlow distribution for real-time data ingestion and routing.</li>
-                                <li>Evaluated, implemented, and productionized <span class="hl">Apache NiFi</span> as the enterprise data integration platform, processing data flows daily and upskilling the operations team.</li>
-                                <li>Established <span class="hl">ITIL-aligned Service Management</span> processes in compliance with <span class="hl">Daimler Data Center Operations</span> standards, covering incident, change, and problem management for the Hadoop platform.</li>
-                                <li>Established regular cadences to respond to customer queries and defined a RACI matrix for ecosystem users — bringing clarity to roles, responsibilities, and escalation paths.</li>
-                                <li>Prepared, reviewed, published, and maintained official documentation for DBDP and DDFP — establishing a single source of truth for platform usage, onboarding, and operational procedures.</li>
-                                <li>Enabled a structured channel for user and use-case onboarding, and conducted onsite handholding sessions with teams to accelerate platform adoption and reduce time-to-value for new data workloads.</li>
-                                <li>Drove one of the first self-service portal initiatives built on <span class="hl">Python + Django</span> to accelerate the onboarding process, reducing manual provisioning overhead and improving time-to-value for new users.</li>
-                                <li>Managed end-to-end cluster lifecycle — upgrades, patching, capacity planning, user provisioning, and job scheduling — executing major upgrades with <span class="hl">zero production impact</span> across an overall <span class="hl">15+ PB Hadoop cluster estate</span>.</li>
-                                <li>Strengthened system resilience and reduced downtime through proactive monitoring and incident management practices.</li>
-                                <li>Took over the responsibility as the <span class="hl">Daimler System Responsible</span>, serving as the <span class="hl">single point of contact for DBDP</span> — managing stakeholders across Indian leadership and Headquarter leadership.</li>
-                                <li>Scaled the team from <span class="hl">5+ to 12+ members</span>, initially leading an external partner team and progressively growing the in-house capability to maintain scalable and reliable Hadoop clusters with consistent SLA adherence.</li>
+                                <li>Delivered the <span class="hl">Daimler Big Data Platform (DBDP)</span> from the ground up — deployed multi-node, HA Hadoop clusters across Dev, Non-Prod, and Production for <span class="hl">EU and AMAP regions</span>, and productionized <span class="hl">Apache NiFi</span> as the enterprise data ingestion platform.</li>
+                                <li>Executed major cluster upgrades with <span class="hl">zero production impact</span> across a <span class="hl">15+ PB Hadoop estate</span> — established ITIL-aligned service management, a Python + Django self-service portal, and a RACI framework adopted across the entire user ecosystem.</li>
+                                <li>Elevated to <span class="hl">Daimler System Responsible</span> and sole DBDP point of contact — scaled the team from <span class="hl">5 to 12+ members</span> while consistently meeting SLA commitments across Indian and HQ leadership stakeholders.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Role 5: Tech Mahindra -->
+                    <!-- Earlier Career (merged) -->
                     <div class="carousel-item">
-                        <div class="exp-card">
-                            <p class="company">Tech Mahindra</p>
-                            <h3 class="role">Senior Software Engineer</h3>
-                            <p class="period"><i class="bi bi-calendar3 me-1"></i> October 2013 – May 2015 &nbsp;|&nbsp; Hyderabad &amp; Bangalore</p>
-                            <ul>
-                                <li>Joined Tech Mahindra as a Teradata Developer; during the project discovery phase with BU Heads and CoE Leaders, identified and secured an opportunity to join the newly established <span class="hl">Big Data Center of Excellence (CoE)</span> — pivoting career trajectory toward distributed data platforms.</li>
-                                <li>Served as the primary Point of Contact with the local infrastructure team to provision and configure the required hardware and network for Hadoop cluster environments, enabling the CoE to rapidly stand up evaluation and PoC infrastructure.</li>
-                                <li>Evaluated <span class="hl">Hortonworks, Cloudera, MapR, open-source Hadoop, IBM BigInsights, and HP IDOL</span> — delivering a comprehensive comparative analysis covering performance, scalability, licensing, and ecosystem maturity that informed enterprise-wide distribution selection.</li>
-                                <li>Delivered <span class="hl">Proofs of Concept (PoCs)</span> for global customers across business analytics, log processing, and predictive use cases, directly contributing to <span class="hl">new client wins</span>.</li>
-                                <li>Maintained thorough documentation for every PoC, presenting the strengths, limitations, and challenges to CoE leadership — enabling data-driven technology decisions and knowledge reuse across engagements.</li>
-                                <li>Trained engineers on Hadoop ecosystem components and cluster operations, accelerating CoE capability maturity and enabling self-service big data adoption.</li>
-                                <li>After one year in the CoE, secured an opportunity to support a <span class="hl">major German automobile manufacturer</span> on their journey to adopt Hortonworks-based Hadoop platforms — relocated to Bangalore to drive hands-on delivery and platform enablement for the client.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Role 6: iGate -->
-                    <div class="carousel-item">
-                        <div class="exp-card">
-                            <p class="company">iGate (now Capgemini)</p>
-                            <h3 class="role">Senior Software Engineer</h3>
-                            <p class="period"><i class="bi bi-calendar3 me-1"></i> May 2010 – September 2013 &nbsp;|&nbsp; Hyderabad</p>
-                            <ul>
-                                <li>Joined as a Software Engineer — Mainframes and was assigned to the <span class="hl">RBC (Royal Bank of Canada)</span> engagement, delivering JCL, COBOL, and DB2 development for the bank's core batch and transaction processing systems.</li>
-                                <li><span class="hl">Hand-picked as the only developer</span> from the Hyderabad ODC to travel to Bangalore for Knowledge Transfer sessions, facilitating a seamless project handover from the Bangalore ODC to Hyderabad with zero delivery disruption.</li>
-                                <li>Performed a comprehensive reverse analysis of the entire end-to-end application landscape, earning <span class="hl">formal appreciation from the client and project leadership</span> for uncovering undocumented dependencies and data flows.</li>
-                                <li>Contributed to JCL, DB2 and COBOL development across multiple release cycles, participating in requirement gathering, coding, and unit testing to ensure on-time, defect-free deliveries.</li>
-                                <li>Upskilled into <span class="hl">SAS and Teradata</span>, independently supporting Teradata-based data requirements and expanding the team's delivery capability beyond mainframe workloads.</li>
-                                <li>Supported production Go-Live activities including job scheduling validation, smoke testing, and post-deployment monitoring — contributing to successful, zero-incident releases.</li>
-                                <li>Proactively explored emerging technologies such as Hadoop and Big Data ecosystems beyond the mainframe stack, building foundational knowledge to stay future-ready and positioning for the industry's shift toward distributed data platforms.</li>
-                                <li><span class="hl">Promoted to Senior Software Engineer</span> in recognition of technical depth, cross-skill versatility, and consistent delivery excellence.</li>
-                            </ul>
+                        <div class="exp-card condensed">
+                            <p class="company" style="color:#475569; font-size:0.8rem; letter-spacing:1.5px;">EARLIER CAREER</p>
+                            <h3 class="role" style="font-size:1.15rem; margin-bottom:20px;">Foundation Years <span style="font-weight:400; color:#475569;">· 2010 – 2015</span></h3>
+                            <div class="earlier-career-grid">
+                                <div class="earlier-card">
+                                    <p class="company">Tech Mahindra</p>
+                                    <p class="role">Senior Software Engineer</p>
+                                    <p class="period"><i class="bi bi-calendar3 me-1"></i> Oct 2013 – May 2015 &nbsp;|&nbsp; Hyderabad &amp; Bangalore</p>
+                                    <ul>
+                                        <li>Pivoted into the <span class="hl">Big Data CoE</span> before Big Data was mainstream — delivered vendor evaluations (Hortonworks, Cloudera, MapR, IBM BigInsights) that informed enterprise-wide distribution selection.</li>
+                                        <li>Drove <span class="hl">new client wins</span> through PoCs across analytics, log processing, and predictive use cases for global customers.</li>
+                                        <li>Secured a strategic engagement with a <span class="hl">major German automaker</span> — relocated to Bangalore for hands-on Hadoop platform delivery, planting the seed for a decade-long Mercedes-Benz R&amp;D career.</li>
+                                    </ul>
+                                </div>
+                                <div class="earlier-card">
+                                    <p class="company">iGate (now Capgemini)</p>
+                                    <p class="role">Senior Software Engineer</p>
+                                    <p class="period"><i class="bi bi-calendar3 me-1"></i> May 2010 – Sep 2013 &nbsp;|&nbsp; Hyderabad</p>
+                                    <ul>
+                                        <li><span class="hl">Hand-picked</span> from Hyderabad ODC to lead KT sessions in Bangalore for <span class="hl">RBC (Royal Bank of Canada)</span> — zero delivery disruption across the full project handover.</li>
+                                        <li>Earned <span class="hl">formal client appreciation</span> for reverse-engineering the entire application landscape, uncovering undocumented dependencies no prior team had mapped.</li>
+                                        <li>Independently upskilled into <span class="hl">SAS and Teradata</span>; promoted to Senior Engineer for cross-skill versatility and consistent delivery excellence.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -587,7 +969,7 @@
 </section>
 
 <!-- AWARDS -->
-<section id="awards" class="py-5" style="background: rgba(15,23,42,0.5);">
+<section id="awards" class="py-5" style="background: var(--bg-card2);">
     <div class="container py-4">
         <div class="fade-up">
             <h2 class="section-title">Awards &amp; <span>Recognitions</span></h2>
@@ -596,7 +978,7 @@
         <div class="row g-3 fade-up">
             <div class="col-md-6 col-lg-4">
                 <div class="award-item">
-                    <div class="award-icon">🏆</div>
+                    <div class="award-icon"><i class="bi bi-trophy-fill"></i></div>
                     <div>
                         <div class="award-title">Best Team Award</div>
                         <div class="award-org">Mercedes-Benz R&amp;D India</div>
@@ -605,7 +987,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="award-item">
-                    <div class="award-icon">⭐</div>
+                    <div class="award-icon"><i class="bi bi-star-fill"></i></div>
                     <div>
                         <div class="award-title">Long Service Award</div>
                         <div class="award-org">Mercedes-Benz R&amp;D India</div>
@@ -614,7 +996,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="award-item">
-                    <div class="award-icon">🎖️</div>
+                    <div class="award-icon"><i class="bi bi-award-fill"></i></div>
                     <div>
                         <div class="award-title">ABCD — Above and Beyond the Call of Duty</div>
                         <div class="award-org">Mercedes-Benz R&amp;D India</div>
@@ -623,7 +1005,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="award-item">
-                    <div class="award-icon">💡</div>
+                    <div class="award-icon"><i class="bi bi-lightbulb-fill"></i></div>
                     <div>
                         <div class="award-title">Kaizen Star Award</div>
                         <div class="award-org">Mercedes-Benz R&amp;D India</div>
@@ -632,7 +1014,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="award-item">
-                    <div class="award-icon">🎖️</div>
+                    <div class="award-icon"><i class="bi bi-award-fill"></i></div>
                     <div>
                         <div class="award-title">ABCD — Above and Beyond the Call of Duty</div>
                         <div class="award-org">Mercedes-Benz R&amp;D India</div>
@@ -641,7 +1023,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="award-item">
-                    <div class="award-icon">👏</div>
+                    <div class="award-icon"><i class="bi bi-hand-thumbs-up-fill"></i></div>
                     <div>
                         <div class="award-title">Pat on the Back Award</div>
                         <div class="award-org">Tech Mahindra</div>
@@ -650,7 +1032,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="award-item">
-                    <div class="award-icon">📜</div>
+                    <div class="award-icon"><i class="bi bi-patch-check-fill"></i></div>
                     <div>
                         <div class="award-title">Certificate of Excellence</div>
                         <div class="award-org">iGate Global Solutions (Now Capgemini)</div>
@@ -670,10 +1052,10 @@
         </div>
         <div class="fade-up">
             <div class="edu-card">
-                <div class="edu-icon-wrap">🎓</div>
+                <div class="edu-icon-wrap"><i class="bi bi-mortarboard-fill"></i></div>
                 <div>
                     <h5 class="mb-1" style="font-weight:700;">B.Tech — Information Technology</h5>
-                    <p class="mb-0" style="color:#94a3b8;">Biju Patnaik University of Technology, Rourkela, India</p>
+                    <p class="mb-0" style="color:#475569;">Biju Patnaik University of Technology, Rourkela, India</p>
                 </div>
             </div>
         </div>
